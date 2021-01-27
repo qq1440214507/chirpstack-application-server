@@ -49,7 +49,7 @@ class ListMulticastGroupDevices extends Component {
   }
 
   onDelete(devEUI) {
-    if(window.confirm("Are you sure you want to remove this device from the multicast-group? This does not remove the device itself.")) {
+    if(window.confirm("您确定要从组播组中删除此设备吗？这不会删除设备本身。")) {
       multicastGroupStore.removeDevice(this.props.match.params.multicastGroupID, devEUI, resp => {
         this.forceUpdate();
       });
@@ -80,7 +80,7 @@ class ListMulticastGroupDevices extends Component {
           <Grid item xs={12} className={this.props.classes.buttons}>
             <Button variant="outlined" className={this.props.classes.button} component={Link} to={`/organizations/${this.props.match.params.organizationID}/multicast-groups/${this.props.match.params.multicastGroupID}/devices/create`}>
               <Plus className={this.props.classes.icon} />
-              Add
+              添加
             </Button>
           </Grid>
         </DeviceAdmin>
@@ -88,8 +88,8 @@ class ListMulticastGroupDevices extends Component {
           <DataTable
             header={
               <TableRow>
-                <TableCell>Device name</TableCell>
-                <TableCell>Device EUI</TableCell>
+                <TableCell>设备名称</TableCell>
+                <TableCell>设备EUI</TableCell>
                 <TableCell></TableCell>
               </TableRow>
             }

@@ -129,25 +129,25 @@ class ListGateways extends Component {
             <GatewayAdmin organizationID={this.props.match.params.organizationID}>
               <TitleBarButton
                 key={1}
-                label="Create"
+                label="创建"
                 icon={<Plus />}
                 to={`/organizations/${this.props.match.params.organizationID}/gateways/create`}
               />
             </GatewayAdmin>
           }
         >
-        <TitleBarTitle title="Gateways" />
+        <TitleBarTitle  title="网关" />
         </TitleBar>
 
         <Grid item xs={12}>
           <DataTable
             header={
               <TableRow>
-                <TableCell>Last seen</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Gateway ID</TableCell>
-                <TableCell>Network server</TableCell>
-                <TableCell className={this.props.classes.chart}>Gateway activity (30d)</TableCell>
+                <TableCell>最后活跃</TableCell>
+                <TableCell>名称</TableCell>
+                <TableCell>网关ID</TableCell>
+                <TableCell>网络服务器</TableCell>
+                <TableCell className={this.props.classes.chart}>网关活动(30d)</TableCell>
               </TableRow>
             }
             getPage={this.getPage}

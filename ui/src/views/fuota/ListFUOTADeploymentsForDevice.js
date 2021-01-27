@@ -71,7 +71,7 @@ class ListFUOTADeploymentsForDevice extends Component {
         <TableCell>{createdAt}</TableCell>
         <TableCell>{updatedAt}</TableCell>
         <TableCell>{obj.state}</TableCell>
-        <TableCell><Button size="small" onClick={() => this.showDetails(obj.id)}>Show</Button></TableCell>
+        <TableCell><Button size="small" onClick={() => this.showDetails(obj.id)}>显示</Button></TableCell>
       </TableRow>
     );
   }
@@ -104,27 +104,27 @@ class ListFUOTADeploymentsForDevice extends Component {
           open={this.state.detailDialog}
           onClose={this.onCloseDialog}
         >
-          <DialogTitle>Job status for device</DialogTitle>
+          <DialogTitle>设备工作状态</DialogTitle>
           <DialogContent>
             <Table>
               <TableBody>
                 <TableRow>
-                  <TableCell>Last updated</TableCell>
+                  <TableCell>最后更新</TableCell>
                   <TableCell>{fddUpdatedAt}</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Device state</TableCell>
+                  <TableCell>设备状态</TableCell>
                   <TableCell>{this.state.deploymentDevice.state}</TableCell>
                 </TableRow>
                 {this.state.deploymentDevice.state === "ERROR" && <TableRow>
-                  <TableCell>Error message</TableCell>
+                  <TableCell>错误信息</TableCell>
                   <TableCell>{this.state.deploymentDevice.errorMessage}</TableCell>
                 </TableRow>}
               </TableBody>
             </Table>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" onClick={this.onCloseDialog}>Dismiss</Button>
+            <Button color="primary" onClick={this.onCloseDialog}>取消</Button>
           </DialogActions>
         </Dialog>}
 
@@ -132,7 +132,7 @@ class ListFUOTADeploymentsForDevice extends Component {
           <Grid item xs={12} className={this.props.classes.buttons}>
             <Button variant="outlined" className={this.props.classes.button} component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/devices/${this.props.match.params.devEUI}/fuota-deployments/create`}>
               <CloudUpload className={this.props.classes.icon} />
-              Create Firmware Update Job
+              创建固件更新作业
             </Button>
           </Grid>
         </DeviceAdmin>
@@ -141,11 +141,11 @@ class ListFUOTADeploymentsForDevice extends Component {
           <DataTable
             header={
               <TableRow>
-                <TableCell>Job name</TableCell>
-                <TableCell>Created at</TableCell>
-                <TableCell>Updated at</TableCell>
-                <TableCell>Job state</TableCell>
-                <TableCell>Device state</TableCell>
+                <TableCell>作业名称</TableCell>
+                <TableCell>创建</TableCell>
+                <TableCell>更新</TableCell>
+                <TableCell>作业状态</TableCell>
+                <TableCell>设备状态</TableCell>
               </TableRow>
             }
             getPage={this.getPage}

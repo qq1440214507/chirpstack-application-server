@@ -55,9 +55,9 @@ class ListGatewaysMap extends Component {
     if (this.state.items === null || this.state.items.length === 0) {
       return(
         <Card>
-          <CardHeader title="Gateways" />
+          <CardHeader title="网关" />
             <CardContent>
-              No data available.
+              没有数据。
             </CardContent>
         </Card>
       );
@@ -99,7 +99,7 @@ class ListGatewaysMap extends Component {
 
       if (item.lastSeenAt === undefined || item.lastSeenAt === null) {
         marker = grayMarker;
-        lastSeen = "Never seen online";
+        lastSeen = "从未上线";
       } else {
         const ts = moment(item.lastSeenAt);
         if (ts.isBefore(moment().subtract(5, 'minutes'))) {
@@ -122,7 +122,7 @@ class ListGatewaysMap extends Component {
 
     return(
       <Card>
-        <CardHeader title="Gateways" />
+        <CardHeader title="网关" />
           <CardContent>
             <Map bounds={bounds} maxZoom={19} style={style} animate={true} scrollWheelZoom={false}>
               <MapTileLayer />
@@ -143,7 +143,7 @@ class DevicesActiveInactive extends Component {
 
     if (this.props.summary !== null && (this.props.summary.activeCount !== 0 || this.props.summary.inactiveCount !== 0)) {
       data = {
-        labels: ["Never seen", "Inactive", "Active"],
+        labels: ["从未活跃", "非活跃", "活跃"],
         datasets: [
           {
             data: [this.props.summary.neverSeenCount, this.props.summary.inactiveCount, this.props.summary.activeCount],
@@ -159,10 +159,10 @@ class DevicesActiveInactive extends Component {
 
     return(
       <Card>
-        <CardHeader title="Active devices" />
+        <CardHeader title="活跃设备" />
         <CardContent>
           {data && <Doughnut data={data} />}
-          {!data && <div>No data available.</div>}
+          {!data && <div>没有数据。</div>}
         </CardContent>
       </Card>
     );
@@ -176,7 +176,7 @@ class GatewaysActiveInactive extends Component {
 
     if (this.props.summary !== null && (this.props.summary.activeCount !== 0 || this.props.summary.inactiveCount !== 0)) {
       data = {
-        labels: ["Never seen", "Inactive", "Active"],
+        labels: ["从未活跃", "非活跃", "活跃"],
         datasets: [
           {
             data: [this.props.summary.neverSeenCount, this.props.summary.inactiveCount, this.props.summary.activeCount],
@@ -193,10 +193,10 @@ class GatewaysActiveInactive extends Component {
 
     return(
       <Card>
-        <CardHeader title="Active gateways" />
+        <CardHeader title="活跃网关" />
         <CardContent>
           {data && <Doughnut data={data} />}
-          {!data && <div>No data available.</div>}
+          {!data && <div>没有数据。</div>}
         </CardContent>
       </Card>
     );
@@ -233,10 +233,10 @@ class DevicesDataRates extends Component {
 
     return(
       <Card>
-        <CardHeader title="Device data-rate usage" />
+        <CardHeader title="设备数据速率使用率" />
         <CardContent>
           {data && <Doughnut data={data} />}
-          {!data && <div>No data available.</div>}
+          {!data && <div>没有数据。</div>}
         </CardContent>
       </Card>
     );
@@ -272,7 +272,7 @@ class Dashboard extends Component {
     return(
       <Grid container spacing={4}>
         <TitleBar>
-          <TitleBarTitle title="Dashboard" />
+          <TitleBarTitle title="仪表盘" />
         </TitleBar>
 
         <Grid item xs={12}>

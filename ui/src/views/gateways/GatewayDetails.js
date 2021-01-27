@@ -29,24 +29,24 @@ class DetailsCard extends Component {
   render() {
     return(
       <Card>
-        <CardHeader title="Gateway details" />
+        <CardHeader title="网关详情" />
         <CardContent>
           <Table>
             <TableBody>
               <TableRow>
-                <TableCell>Gateway ID</TableCell>
+                <TableCell>网关ID</TableCell>
                 <TableCell>{this.props.gateway.id}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Altitude</TableCell>
+                <TableCell>高度</TableCell>
                 <TableCell>{this.props.gateway.location.altitude} meters</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>GPS coordinates</TableCell>
+                <TableCell>GPS坐标</TableCell>
                 <TableCell>{this.props.gateway.location.latitude}, {this.props.gateway.location.longitude}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Last seen at</TableCell>
+                <TableCell>最后活跃</TableCell>
                 <TableCell>{this.props.lastSeenAt}</TableCell>
               </TableRow>
             </TableBody>
@@ -145,7 +145,7 @@ class GatewayDetails extends Component {
       position = [0,0];
     }
 
-    let lastSeenAt = "Never";
+    let lastSeenAt = "从未";
     if (this.props.lastSeenAt !== null) {
       lastSeenAt = moment(this.props.lastSeenAt).format("lll");
     }
@@ -165,7 +165,7 @@ class GatewayDetails extends Component {
         </Grid>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title="Frames received" />
+            <CardHeader title="收到帧" />
             <CardContent className={this.props.classes.chart}>
               <Line height={75} options={statsOptions} data={this.state.statsDown} redraw />
             </CardContent>
@@ -173,7 +173,7 @@ class GatewayDetails extends Component {
         </Grid>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title="Frames transmitted" />
+            <CardHeader title="传输帧" />
             <CardContent className={this.props.classes.chart}>
               <Line height={75} options={statsOptions} data={this.state.statsUp} redraw />
             </CardContent>

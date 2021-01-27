@@ -12,76 +12,73 @@ import Form from "../../components/Form";
 
 
 class OrganizationUserForm extends FormComponent {
-  render() {
-    if (this.state.object === undefined) {
-      return(<div></div>);
+    render() {
+        if (this.state.object === undefined) {
+            return (<div></div>);
+        }
+
+        return (
+            <Form
+                submitLabel={this.props.submitLabel}
+                onSubmit={this.onSubmit}
+            >
+                <TextField
+                    label="邮箱"
+                    id="email"
+                    margin="normal"
+                    value={this.state.object.email || ""}
+                    onChange={this.onChange}
+                    required
+                    fullWidth
+                    disabled={this.props.update}
+                />
+                <Typography variant="body1">
+                    没有其他权限的用户将能够查看此组织下的所有资源，并且能够发送和接收设备有效载荷。
+                </Typography>
+                <FormControl fullWidth margin="normal">
+                    <FormControlLabel
+                        label="组织管理员"
+                        control={
+                            <Checkbox
+                                id="isAdmin"
+                                checked={!!this.state.object.isAdmin}
+                                onChange={this.onChange}
+                                color="primary"
+                            />
+                        }
+                    />
+                    <FormHelperText>组织管理员用户能够添加和修改组织的资源部分。</FormHelperText>
+                </FormControl>
+                {!!!this.state.object.isAdmin && <FormControl fullWidth margin="normal">
+                    <FormControlLabel
+                        label="设备管理员"
+                        control={
+                            <Checkbox
+                                id="isDeviceAdmin"
+                                checked={!!this.state.object.isDeviceAdmin}
+                                onChange={this.onChange}
+                                color="primary"
+                            />
+                        }
+                    />
+                    <FormHelperText>设备管理员用户能够添加和修改设备的资源部分。</FormHelperText>
+                </FormControl>}
+                {!!!this.state.object.isAdmin && <FormControl fullWidth margin="normal">
+                    <FormControlLabel
+                        label="网关管理员"
+                        control={
+                            <Checkbox
+                                id="isGatewayAdmin"
+                                checked={!!this.state.object.isGatewayAdmin}
+                                onChange={this.onChange}
+                                color="primary"
+                            />
+                        }
+                    />
+                    <FormHelperText>网关管理员用户能够添加和修改网关的资源部分。</FormHelperText>
+                </FormControl>}
+            </Form>
+        );
     }
-
-    return(
-      <Form
-        submitLabel={this.props.submitLabel}
-        onSubmit={this.onSubmit}
-      >
-          <TextField
-            label="Email"
-            id="email"
-            margin="normal"
-            value={this.state.object.email || ""}
-            onChange={this.onChange}
-            required
-            fullWidth
-            disabled={this.props.update}
-          />
-          <Typography variant="body1">
-            An user without additional permissions will be able to see all
-            resources under this organization and will be able to send and
-            receive device payloads.
-          </Typography>
-          <FormControl fullWidth margin="normal">
-            <FormControlLabel
-              label="User is organization admin"
-              control={
-                <Checkbox
-                  id="isAdmin"
-                  checked={!!this.state.object.isAdmin}
-                  onChange={this.onChange}
-                  color="primary"
-                />
-              }
-            />
-            <FormHelperText>An organization admin user is able to add and modify resources part of the organization.</FormHelperText>
-          </FormControl>
-          {!!!this.state.object.isAdmin && <FormControl fullWidth margin="normal">
-            <FormControlLabel
-              label="User is device admin"
-              control={
-                <Checkbox
-                  id="isDeviceAdmin"
-                  checked={!!this.state.object.isDeviceAdmin}
-                  onChange={this.onChange}
-                  color="primary"
-                />
-              }
-            />
-            <FormHelperText>A device admin user is able to add and modify resources part of the organization that are related to devices.</FormHelperText>
-          </FormControl>}
-          {!!!this.state.object.isAdmin && <FormControl fullWidth margin="normal">
-            <FormControlLabel
-              label="User is gateway admin"
-              control={
-                <Checkbox
-                  id="isGatewayAdmin"
-                  checked={!!this.state.object.isGatewayAdmin}
-                  onChange={this.onChange}
-                  color="primary"
-                />
-              }
-            />
-            <FormHelperText>A gateway admin user is able to add and modify gateways part of the organization.</FormHelperText>
-          </FormControl>}
-      </Form>
-    );
-  }
 }
-
 export default OrganizationUserForm;

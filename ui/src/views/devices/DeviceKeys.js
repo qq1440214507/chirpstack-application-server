@@ -25,8 +25,8 @@ class LW11DeviceKeysForm extends FormComponent {
       >
         <AESKeyField
           id="nwkKey"
-          label="Network key (LoRaWAN 1.1)"
-          helperText="For LoRaWAN 1.1 devices. In case your device does not support LoRaWAN 1.1, update the device-profile first."
+          label="网络秘钥(LoRaWAN 1.1)"
+          helperText="用户LoRaWAN 1.1设备。如果您的设备不支持LoRaWAN 1.1，请首先更新设备配置文件。"
           onChange={this.onChange}
           value={object.nwkKey || ""}
           margin="normal"
@@ -36,8 +36,8 @@ class LW11DeviceKeysForm extends FormComponent {
         />
         <AESKeyField
           id="appKey"
-          label="Application key (LoRaWAN 1.1)"
-          helperText="For LoRaWAN 1.1 devices. In case your device does not support LoRaWAN 1.1, update the device-profile first."
+          label="应用秘钥(LoRaWAN 1.1)"
+          helperText="用户LoRaWAN 1.1设备。如果您的设备不支持LoRaWAN 1.1，请首先更新设备配置文件。"
           onChange={this.onChange}
           value={object.appKey || ""}
           margin="normal"
@@ -64,8 +64,8 @@ class LW10DeviceKeysForm extends FormComponent {
       >
         <AESKeyField
           id="nwkKey"
-          label="Application key"
-          helperText="For LoRaWAN 1.0 devices. In case your device supports LoRaWAN 1.1, update the device-profile first."
+          label="应用秘钥"
+          helperText="对于LoRaWAN 1.0设备。 如果您的设备支持LoRaWAN 1.1，请首先更新设备配置文件。"
           onChange={this.onChange}
           value={object.nwkKey || ""}
           margin="normal"
@@ -75,8 +75,8 @@ class LW10DeviceKeysForm extends FormComponent {
         />
         <AESKeyField
           id="genAppKey"
-          label="Gen Application key"
-          helperText="For LoRaWAN 1.0 devices. This key must only be set when the device implements the remote multicast setup specification / firmware updates over the air (FUOTA). Else leave this field blank."
+          label="生成应用秘钥"
+          helperText="对于LoRaWAN 1.0设备。仅当设备实施远程组播设置规范/无线固件更新（FUOTA）时，才必须设置此密钥。 否则将此字段留空。"
           onChange={this.onChange}
           value={object.genAppKey || ""}
           margin="normal"
@@ -140,12 +140,12 @@ class DeviceKeys extends Component {
           <Card>
             <CardContent>
               {this.props.deviceProfile.macVersion.startsWith("1.0") && <LW10DeviceKeysForm
-                submitLabel="Set device-keys"
+                submitLabel="设置设备秘钥"
                 onSubmit={this.onSubmit}
                 object={this.state.deviceKeys.deviceKeys}
               />}
               {this.props.deviceProfile.macVersion.startsWith("1.1") && <LW11DeviceKeysForm
-                submitLabel="Set device-keys"
+                submitLabel="设置设备秘钥"
                 onSubmit={this.onSubmit}
                 object={this.state.deviceKeys.deviceKeys}
               />}

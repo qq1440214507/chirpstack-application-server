@@ -73,7 +73,7 @@ class OrganizationLayout extends Component {
   }
 
   deleteOrganization = () => {
-    if (window.confirm("Are you sure you want to delete this organization?")) {
+    if (window.confirm("您确定删除这个组织吗?")) {
       OrganizationStore.delete(this.props.match.params.organizationID, () => {
         this.props.history.push("/organizations");
       });
@@ -103,14 +103,14 @@ class OrganizationLayout extends Component {
           buttons={[
             <TitleBarButton
               key={1}
-              label="Delete"
+              label="删除"
               icon={<Delete />}
               color="secondary"
               onClick={this.deleteOrganization}
             />,
           ]}
         >
-          <TitleBarTitle to="/organizations" title="Organizations" />
+          <TitleBarTitle to="/organizations" title="组织" />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.organization.organization.name} />
         </TitleBar>
@@ -121,8 +121,8 @@ class OrganizationLayout extends Component {
             indicatorColor="primary"
             className={this.props.classes.tabs}
           >
-            <Tab label="Dashboard" component={Link} to={`/organizations/${this.props.match.params.organizationID}`} />
-            <Tab label="Configuration" component={Link} to={`/organizations/${this.props.match.params.organizationID}/edit`} />
+            <Tab label="仪表盘" component={Link} to={`/organizations/${this.props.match.params.organizationID}`} />
+            <Tab label="配置" component={Link} to={`/organizations/${this.props.match.params.organizationID}/edit`} />
           </Tabs>
         </Grid>
 

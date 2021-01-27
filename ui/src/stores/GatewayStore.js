@@ -28,7 +28,7 @@ class GatewayStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("created");
+        this.notify("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -58,7 +58,7 @@ class GatewayStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -72,7 +72,7 @@ class GatewayStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("deleted");
+        this.notify("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -163,7 +163,7 @@ class GatewayStore extends EventEmitter {
         dispatcher.dispatch({
           type: "CREATE_NOTIFICATION",
           notification: {
-            type: "error",
+            type: "错误",
             message: msg.error.message,
           },
         });
@@ -192,8 +192,8 @@ class GatewayStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "gateway has been " + action,
+        type: "成功",
+        message: "网关已" + action,
       },
     });
   }

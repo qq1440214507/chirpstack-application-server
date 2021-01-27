@@ -27,20 +27,20 @@ class DetailsCard extends Component {
   render() {
     return(
       <Card>
-        <CardHeader title="Details" />
+        <CardHeader title="详情" />
         <CardContent>
           <Table>
             <TableBody>
               <TableRow>
-                <TableCell>Name</TableCell>
+                <TableCell>名称</TableCell>
                 <TableCell>{this.props.device.device.name}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Description</TableCell>
+                <TableCell>描述</TableCell>
                 <TableCell>{this.props.device.device.description}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Device-profile</TableCell>
+                <TableCell>设备配置文件</TableCell>
                 <TableCellLink to={`/organizations/${this.props.match.params.organizationID}/device-profiles/${this.props.deviceProfile.deviceProfile.id}`}>{this.props.deviceProfile.deviceProfile.name}</TableCellLink>
               </TableRow>
             </TableBody>
@@ -67,16 +67,16 @@ class StatusCard extends Component {
 
     return(
       <Card>
-        <CardHeader title="Status" />
+        <CardHeader title="状态" />
         <CardContent>
           <Table>
             <TableBody>
               <TableRow>
-                <TableCell>Last seen at</TableCell>
+                <TableCell>最后活跃</TableCell>
                 <TableCell>{lastSeenAt}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>State</TableCell>
+                <TableCell>状态</TableCell>
                 <TableCell>{state}</TableCell>
               </TableRow>
             </TableBody>

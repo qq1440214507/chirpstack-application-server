@@ -193,45 +193,45 @@ class DeviceData extends Component {
           aria-labelledby="help-dialog-title"
           aria-describedby="help-dialog-description"
         >
-          <DialogTitle id="help-dialog-title">Help</DialogTitle>
+          <DialogTitle id="help-dialog-title">帮助</DialogTitle>
           <DialogContent>
             <DialogContentText id="help-dialog-description">
-              These are the events as published to the application (using the JSON marshaler). Please refer to data integrations (documentation) for more information on integrating this with your application.<br /><br />
-              ID values are converted from base64 to HEX for your convenience.
+              这些是发布到应用程序的事件（使用JSON封送处理程序）。请参阅数据集成（文档）以获取有关与应用程序集成的更多信息。<br /><br />
+              为方便起见，ID值从base64转换为HEX。
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.toggleHelpDialog} color="primary">Close</Button>
+            <Button onClick={this.toggleHelpDialog} color="primary">关闭</Button>
           </DialogActions>
         </Dialog>
 
         <Grid item xs={12} className={this.props.classes.buttons}>
           <Button variant="outlined" className={this.props.classes.button} onClick={this.toggleHelpDialog}>
             <HelpCircleOutline className={this.props.classes.icon} />
-            Help
+            帮助
           </Button>
           {!this.state.paused && <Button variant="outlined" className={this.props.classes.button} onClick={this.togglePause}>
             <Pause className={this.props.classes.icon} />
-            Pause
+            暂停
           </Button>}
           {this.state.paused && <Button variant="outlined" className={this.props.classes.button} onClick={this.togglePause}>
             <Play className={this.props.classes.icon} />
-            Resume
+            恢复
           </Button>}
           <Button variant="outlined" className={this.props.classes.button} onClick={this.onDownload}>
             <Download className={this.props.classes.icon} />
-            Download
+            下载
           </Button>
           <Button variant="outlined" className={this.props.classes.button} color="secondary" onClick={this.onClear}>
             <Delete className={this.props.classes.icon} />
-            Clear
+            清除
           </Button>
         </Grid>
         <Grid item xs={12}>
           {!this.state.connected && <div className={this.props.classes.center}>
             <Chip
               color="secondary"
-              label="Not connected to Websocket API"
+              label="未连接到Websocket API"
               avatar={<Avatar><AlertCircleOutline /></Avatar>}
             />
           </div>}

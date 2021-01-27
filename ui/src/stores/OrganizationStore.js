@@ -23,7 +23,7 @@ class OrganizationStore extends EventEmitter {
       .then(checkStatus)
       .then(resp => {
         this.emit("create", organization);
-        this.notify("created");
+        this.notify("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -54,7 +54,7 @@ class OrganizationStore extends EventEmitter {
       .then(checkStatus)
       .then(resp => {
         this.emit("change", organization);
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -69,7 +69,7 @@ class OrganizationStore extends EventEmitter {
       .then(checkStatus)
       .then(resp => {
         this.emit("delete", id);
-        this.notify("deleted");
+        this.notify("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -171,8 +171,8 @@ class OrganizationStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "organization has been " + action,
+        type: "成功",
+        message: "组织已" + action,
       },
     });
   }

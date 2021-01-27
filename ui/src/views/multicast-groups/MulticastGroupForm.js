@@ -64,8 +64,8 @@ class MulticastGroupForm extends FormComponent {
 
   getGroupTypeOptions(search, callbackFunc) {
     const options = [
-      {value: "CLASS_B", label: "Class-B"},
-      {value: "CLASS_C", label: "Class-C"},
+      {value: "CLASS_B", label: "B类"},
+      {value: "CLASS_C", label: "C类"},
     ];
 
     callbackFunc(options);
@@ -73,14 +73,14 @@ class MulticastGroupForm extends FormComponent {
 
   getPingSlotPeriodOptions(search, callbackFunc) {
     const pingSlotPeriodOptions = [
-      {value: 32 * 1, label: "every second"},
-      {value: 32 * 2, label: "every 2 seconds"},
-      {value: 32 * 4, label: "every 4 seconds"},
-      {value: 32 * 8, label: "every 8 seconds"},
-      {value: 32 * 16, label: "every 16 seconds"},
-      {value: 32 * 32, label: "every 32 seconds"},
-      {value: 32 * 64, label: "every 64 seconds"},
-      {value: 32 * 128, label: "every 128 seconds"},
+      {value: 32 * 1, label: "每秒"},
+      {value: 32 * 2, label: "每2秒"},
+      {value: 32 * 4, label: "每4秒"},
+      {value: 32 * 8, label: "每8秒"},
+      {value: 32 * 16, label: "每16秒"},
+      {value: 32 * 32, label: "每32秒"},
+      {value: 32 * 64, label: "每64秒"},
+      {value: 32 * 128, label: "每128秒"},
     ];
 
     callbackFunc(pingSlotPeriodOptions);
@@ -98,19 +98,19 @@ class MulticastGroupForm extends FormComponent {
       >
         <TextField
           id="name"
-          label="Multicast-group name"
+          label="组播组名称"
           margin="normal"
           value={this.state.object.name || ""}
           onChange={this.onChange}
-          helperText="The name of the multicast-group."
+          helperText="组播组的名称"
           fullWidth
           required
         />
         {!this.props.update && <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Service-profile</FormLabel> 
+          <FormLabel className={this.props.classes.formLabel} required>服务配置文件</FormLabel>
           <AutocompleteSelect
             id="serviceProfileID"
-            label="Select service-profile"
+            label="选择服务配置文件"
             value={this.state.object.serviceProfileID || ""}
             onChange={this.onChange}
             getOption={this.getServiceProfileOption}
@@ -119,12 +119,12 @@ class MulticastGroupForm extends FormComponent {
             required
           />
           <FormHelperText>
-            The service-profile to which this multicast-group will be attached. Note that you can't change this value after the multicast-group has been created.
+            该组播组将添加到的服务配置文件。请注意，创建组播组后就无法更改此值。
           </FormHelperText>
         </FormControl>}
         <DevAddrField
           id="mcAddr"
-          label="Multicast address"
+          label="组播地址"
           margin="normal"
           value={this.state.object.mcAddr || ""}
           onChange={this.onChange}
@@ -136,7 +136,7 @@ class MulticastGroupForm extends FormComponent {
         />
         <AESKeyField
           id="mcNwkSKey"
-          label="Multicast network session key"
+          label="组播网络会话密钥"
           margin="normal"
           value={this.state.object.mcNwkSKey || ""}
           onChange={this.onChange}
@@ -147,7 +147,7 @@ class MulticastGroupForm extends FormComponent {
         />
         <AESKeyField
           id="mcAppSKey"
-          label="Multicast application session key"
+          label="组播应用会话密钥"
           margin="normal"
           value={this.state.object.mcAppSKey || ""}
           onChange={this.onChange}
@@ -158,7 +158,7 @@ class MulticastGroupForm extends FormComponent {
         />
         <TextField
           id="fCnt"
-          label="Frame-counter"
+          label="帧计数器"
           margin="normal"
           type="number"
           value={this.state.object.fCnt || 0}
@@ -168,8 +168,8 @@ class MulticastGroupForm extends FormComponent {
         />
         <TextField
           id="dr"
-          label="Data-rate"
-          helperText="The data-rate to use when transmitting the multicast frames. Please refer to the LoRaWAN Regional Parameters specification for valid values."
+          label="数据速率"
+          helperText="传输组播帧时使用的数据速率。具体有效值，请参阅LoRaWAN区域参数规范。"
           margin="normal"
           type="number"
           value={this.state.object.dr || 0}
@@ -179,8 +179,8 @@ class MulticastGroupForm extends FormComponent {
         />
         <TextField
           id="frequency"
-          label="Frequency (Hz)"
-          helperText="The frequency to use when transmitting the multicast frames. Please refer to the LoRaWAN Regional Parameters specification for valid values."
+          label="频率 (Hz)"
+          helperText="传输组播帧时使用的频率。具体有效值，请参阅LoRaWAN区域参数规范。"
           margin="normal"
           type="number"
           value={this.state.object.frequency || 0}
@@ -189,30 +189,30 @@ class MulticastGroupForm extends FormComponent {
           fullWidth
         />
         <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Multicast-group type</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>组播组类型</FormLabel>
           <AutocompleteSelect
             id="groupType"
-            label="Select multicast-group type"
+            label="选择组播组类型"
             value={this.state.object.groupType || ""}
             onChange={this.onChange}
             getOptions={this.getGroupTypeOptions}
             required
           />
           <FormHelperText>
-            The multicast-group type defines the way how multicast frames are scheduled by the network-server.
+            组播组类型定义了网络服务器如何调度组播帧的方式。
           </FormHelperText>
         </FormControl>
         {this.state.object.groupType === "CLASS_B" && <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Class-B ping-slot periodicity</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>B类设备ping-slot时间周期</FormLabel>
           <AutocompleteSelect
             id="pingSlotPeriod"
-            label="Select Class-B ping-slot periodicity"
+            label="选择B类设备ping-slot时间周期"
             value={this.state.object.pingSlotPeriod || ""}
             onChange={this.onChange}
             getOptions={this.getPingSlotPeriodOptions}
             required
           />
-          <FormHelperText>Class-B ping-slot periodicity.</FormHelperText>
+          <FormHelperText>B类设备ping-slot时间周期。</FormHelperText>
         </FormControl>}
       </Form>
     );

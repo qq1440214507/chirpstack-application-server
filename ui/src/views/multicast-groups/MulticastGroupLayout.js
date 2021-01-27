@@ -108,7 +108,7 @@ class MulticastGroupLayout extends Component {
           buttons={
             <DeviceAdmin organizationID={this.props.match.params.organizationID}>
               <TitleBarButton
-                label="Delete"
+                label="删除"
                 icon={<Delete />}
                 color="secondary"
                 onClick={this.deleteMulticastGroup}
@@ -116,7 +116,7 @@ class MulticastGroupLayout extends Component {
             </DeviceAdmin>
           }
         >
-          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/multicast-groups`} title="Multicast-groups" />
+          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/multicast-groups`} title="组播组" />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.multicastGroup.multicastGroup.name} />
         </TitleBar>
@@ -129,7 +129,7 @@ class MulticastGroupLayout extends Component {
             className={this.props.classes.tabs}
           >
             <Tab label="Devices" component={Link} to={`/organizations/${this.props.match.params.organizationID}/multicast-groups/${this.props.match.params.multicastGroupID}`} />
-            {this.state.admin && <Tab label="Configuration" component={Link} to={`/organizations/${this.props.match.params.organizationID}/multicast-groups/${this.props.match.params.multicastGroupID}/edit`} />}
+            {this.state.admin && <Tab label="配置" component={Link} to={`/organizations/${this.props.match.params.organizationID}/multicast-groups/${this.props.match.params.multicastGroupID}/edit`} />}
           </Tabs>
         </Grid>
 

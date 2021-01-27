@@ -62,23 +62,23 @@ class GatewayBoardForm extends Component {
   render() {
     return(
       <FormControl fullWidth margin="normal">
-        <FormLabel className={this.props.classes.formLabel}>Board #{this.props.i} configuration (<a href="#delete" onClick={this.onDelete} className={this.props.classes.a}>delete</a>)</FormLabel>
+        <FormLabel className={this.props.classes.formLabel}>Board #{this.props.i} configuration (<a href="#delete" onClick={this.onDelete} className={this.props.classes.a}>删除</a>)</FormLabel>
         <EUI64Field
           id="fpgaID"
           label="FPGA ID"
           margin="normal"
           value={this.props.board.fpgaID || ""}
           onChange={this.onChange}
-          helperText="The FPGA ID of the geoloc concentrator board. This is only available for v2 gateways with geolocation capabilities. (optional)"
+          helperText="地理位置集中器板的FPGA ID。仅适用于具有地理位置功能的v2网关。（可选的）"
           fullWidth
         />
         <AESKeyField
           id="fineTimestampKey"
-          label="Fine-timestamp decryption key"
+          label="精细时间戳解密密钥"
           margin="normal"
           value={this.props.board.fineTimestampKey || ""}
           onChange={this.onChange}
-          helperText="The fine-timestamp AES decryption key. When set, ChirpStack Network Server will decrypt the fine-timestamp. This is only available for v2 gateways with geolocation capabilities. (optional)"
+          helperText="精细时间戳AES解密密钥。设置后，网络服务器将解密精细时间戳。仅适用于具有地理位置功能的v2网关。（可选的）"
           fullWidth
         />
       </FormControl>
@@ -307,28 +307,28 @@ class GatewayForm extends FormComponent {
         extraButtons={this.state.tab === 0 && <Button onClick={this.addGatewayBoard}>Add board configuration</Button>}
       >
         <Tabs value={this.state.tab} onChange={this.onTabChange} indicatorColor="primary">
-          <Tab label="General" />
-          <Tab label="Tags" />
-          <Tab label="Metadata" />
+          <Tab label="基础" />
+          <Tab label="标签" />
+          <Tab label="元数据" />
         </Tabs>
 
         {this.state.tab === 0 && <div>
           <TextField
             id="name"
-            label="Gateway name"
+            label="网关名称"
             margin="normal"
             value={this.state.object.name || ""}
             onChange={this.onChange}
             inputProps={{
               pattern: "[\\w-]+",
             }}
-            helperText="The name may only contain words, numbers and dashes."
+            helperText="名称只能包含英文，数字和破折号。"
             required
             fullWidth
           />
           <TextField
             id="description"
-            label="Gateway description"
+            label="网关描述"
             margin="normal"
             value={this.state.object.description || ""}
             onChange={this.onChange}
@@ -339,7 +339,7 @@ class GatewayForm extends FormComponent {
           />
           {!this.props.update && <EUI64Field
             id="id"
-            label="Gateway ID"
+            label="网关ID"
             margin="normal"
             value={this.state.object.id || ""}
             onChange={this.onChange}
@@ -348,10 +348,10 @@ class GatewayForm extends FormComponent {
             random
           />}
           {!this.props.update && <FormControl fullWidth margin="normal">
-            <FormLabel className={this.props.classes.formLabel} required>Network-server</FormLabel>
+            <FormLabel className={this.props.classes.formLabel} required>网络服务器</FormLabel>
             <AutocompleteSelect
               id="networkServerID"
-              label="Select network-server"
+              label="选择网络服务器"
               value={this.state.object.networkServerID || ""}
               onChange={this.onChange}
               getOption={this.getNetworkServerOption}
@@ -359,14 +359,14 @@ class GatewayForm extends FormComponent {
               required
             />
             <FormHelperText>
-              Select the network-server to which the gateway will connect. When no network-servers are available in the dropdown, make sure a service-profile exists for this organization. 
+              选择网关将连接到的网络服务器。 如果下拉列表中没有可用的网络服务器，请查看该组织的服务配置文件是否存在。
             </FormHelperText>
           </FormControl>}
           <FormControl fullWidth margin="normal">
-            <FormLabel className={this.props.classes.formLabel}>Gateway-profile</FormLabel>
+            <FormLabel className={this.props.classes.formLabel}>网关配置文件</FormLabel>
             <AutocompleteSelect
               id="gatewayProfileID"
-              label="Select gateway-profile"
+              label="选择网关配置文件"
               value={this.state.object.gatewayProfileID || ""}
               triggerReload={this.state.object.networkServerID || ""}
               onChange={this.onChange}
@@ -375,12 +375,12 @@ class GatewayForm extends FormComponent {
               clearable={true}
             />
             <FormHelperText>
-              Optional. When assigning a gateway-profile to the gateway, ChirpStack Network Server will attempt to update the gateway according to the gateway-profile. Note that this does require a gateway with ChirpStack Concentratord.
+             可选的。在为网关分配网关配置文件时，网络服务器将尝试根据网关配置文件更新网关。 请注意，这需要具有ChirpStack Concentratord组件的网关。
             </FormHelperText>
           </FormControl>
           <FormGroup>
             <FormControlLabel
-              label="Gateway discovery enabled"
+              label="网关发现"
               control={
                 <Checkbox
                   id="discoveryEnabled"
@@ -391,22 +391,22 @@ class GatewayForm extends FormComponent {
               }
             />
             <FormHelperText>
-              When enabled (and ChirpStack Network Server is configured with the gateway discover feature enabled), the gateway will send out periodical pings to test its coverage by other gateways in the same network.
+                启用后（并且网络服务器配置了启用的网关发现功能），网关将定期发出ping命令以测试同一网络中其他网关的覆盖范围。
             </FormHelperText>
           </FormGroup>
           <TextField
             id="location.altitude"
-            label="Gateway altitude (meters)"
+            label="网关高度（米）"
             margin="normal"
             type="number"
             value={this.state.object.location.altitude || 0}
             onChange={this.onChange}
-            helperText="When the gateway has an on-board GPS, this value will be set automatically when the network has received statistics from the gateway."
+            helperText="网关具有GPS时，当网络从网关接收到统计信息时，将自动设置此值."
             required
             fullWidth
           />
           <FormControl fullWidth margin="normal">
-            <FormLabel className={this.props.classes.mapLabel}>Gateway location (<a onClick={this.setCurrentPosition} href="#getlocation" className={this.props.classes.link}>set to current location</a>)</FormLabel>
+            <FormLabel className={this.props.classes.mapLabel}>网关位置 (<a onClick={this.setCurrentPosition} href="#getlocation" className={this.props.classes.link}>设置为当前位置</a>)</FormLabel>
             <Map
               center={position}
               zoom={this.state.mapZoom}
@@ -419,7 +419,7 @@ class GatewayForm extends FormComponent {
               <Marker position={position} draggable={true} onDragend={this.updatePosition} ref="marker" />
             </Map>
             <FormHelperText>
-              Drag the marker to the location of the gateway. When the gateway has an on-board GPS, this value will be set automatically when the network receives statistics from the gateway.
+              将标记拖动到网关的位置。网关具有GPS时，当网络从网关接收统计信息时，将自动设置此值。
             </FormHelperText>
           </FormControl>
           {boards}
@@ -427,17 +427,16 @@ class GatewayForm extends FormComponent {
         {this.state.tab === 1 && <div>
           <FormControl fullWidth margin="normal">
             <Typography variant="body1">
-              Tags can be used to store additional key/value data.
+              标签可用于存储其他键/值数据。
             </Typography>
             {tags}
           </FormControl>
-          <Button variant="outlined" onClick={this.addKV("tags")}>Add tag</Button>
+          <Button variant="outlined" onClick={this.addKV("tags")}>添加标签</Button>
         </div>}
         {this.state.tab === 2 && <div>
           <FormControl fullWidth margin="normal">
             <Typography variant="body1">
-              Metadata can be used by the ChirpStack Gateway Bridge to push information about the gateway (e.g. ip / hostname, serial number, temperatures, ...).
-              This information is automatically updated when gateway statistics are received.
+              网关网桥可以使用元数据来推送有关网关的信息（例如ip /主机名，序列号，温度等）。当收到网关统计信息时，此信息将自动更新。
             </Typography>
             {metadata}
           </FormControl>

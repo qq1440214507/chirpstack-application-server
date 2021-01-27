@@ -86,27 +86,27 @@ class FUOTADeploymentDevices extends Component {
           open={this.state.detailDialog}
           onClose={this.onCloseDialog}
         >
-          <DialogTitle>Job status for device</DialogTitle>
+          <DialogTitle>设备工作状态</DialogTitle>
           <DialogContent>
             <Table>
               <TableBody>
                 <TableRow>
-                  <TableCell>Last updated</TableCell>
+                  <TableCell>最后更新</TableCell>
                   <TableCell>{fddUpdatedAt}</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Device state</TableCell>
+                  <TableCell>设备状态</TableCell>
                   <TableCell>{this.state.deploymentDevice.state}</TableCell>
                 </TableRow>
                 {this.state.deploymentDevice.state === "ERROR" && <TableRow>
-                  <TableCell>Error message</TableCell>
+                  <TableCell>错误信息</TableCell>
                   <TableCell>{this.state.deploymentDevice.errorMessage}</TableCell>
                 </TableRow>}
               </TableBody>
             </Table>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" onClick={this.onCloseDialog}>Dismiss</Button>
+            <Button color="primary" onClick={this.onCloseDialog}>取消</Button>
           </DialogActions>
         </Dialog>}
 
@@ -115,11 +115,11 @@ class FUOTADeploymentDevices extends Component {
           <DataTable
             header={
               <TableRow>
-                <TableCell>Device name</TableCell>
-                <TableCell>Device EUI</TableCell>
-                <TableCell>Created at</TableCell>
-                <TableCell>Updated at</TableCell>
-                <TableCell>State</TableCell>
+                <TableCell>设备名称</TableCell>
+                <TableCell>设备EUI</TableCell>
+                <TableCell>创建</TableCell>
+                <TableCell>更新</TableCell>
+                <TableCell>状态</TableCell>
               </TableRow>
             }
             getPage={this.getPage}

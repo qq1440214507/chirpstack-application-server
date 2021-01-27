@@ -24,7 +24,7 @@ class UserStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("created");
+        this.notify("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -54,7 +54,7 @@ class UserStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -68,7 +68,7 @@ class UserStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("deleted");
+        this.notify("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -85,7 +85,7 @@ class UserStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -111,7 +111,7 @@ class UserStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
+        type: "成功",
         message: "user has been " + action,
       },
     });

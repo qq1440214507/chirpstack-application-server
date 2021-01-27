@@ -5,16 +5,8 @@ import Grid from "@material-ui/core/Grid";
 
 import ApplicationStore from "../../stores/ApplicationStore";
 import theme from "../../theme";
-
-import GCPPubSubCard from "./integrations/GCPPubSub";
 import HTTPCard from "./integrations/HTTP";
-import AzureServiceBusCard from "./integrations/AzureServiceBusCard";
-import AWSSNSCard from "./integrations/AWSSNSCard";
 import InfluxDBCard from "./integrations/InfluxDBCard";
-import ThingsboardCard from "./integrations/ThingsboardCard";
-import LoRaCloudCard from "./integrations/LoRaCloudCard";
-import MyDevicesCard from "./integrations/MyDevicesCard";
-import PilotThingsCard from "./integrations/PilotThingsCard";
 
 
 const styles = {
@@ -75,25 +67,25 @@ class ListIntegrations extends Component {
       };
 
       // AWS
-      if(includes(resp.result, "AWS_SNS")) {
-        configured.push(<AWSSNSCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<AWSSNSCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
-
-      // Azure
-      if(includes(resp.result, "AZURE_SERVICE_BUS")) {
-        configured.push(<AzureServiceBusCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<AzureServiceBusCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
-
-      // GCP
-      if(includes(resp.result, "GCP_PUBSUB")) {
-        configured.push(<GCPPubSubCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<GCPPubSubCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
+      // if(includes(resp.result, "AWS_SNS")) {
+      //   configured.push(<AWSSNSCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<AWSSNSCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
+      //
+      // // Azure
+      // if(includes(resp.result, "AZURE_SERVICE_BUS")) {
+      //   configured.push(<AzureServiceBusCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<AzureServiceBusCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
+      //
+      // // GCP
+      // if(includes(resp.result, "GCP_PUBSUB")) {
+      //   configured.push(<GCPPubSubCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<GCPPubSubCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
 
       // HTTP
       if(includes(resp.result, "HTTP")) {
@@ -110,32 +102,32 @@ class ListIntegrations extends Component {
       }
 
       // MyDevices
-      if(includes(resp.result, "MYDEVICES")) {
-        configured.push(<MyDevicesCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<MyDevicesCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
+      // if(includes(resp.result, "MYDEVICES")) {
+      //   configured.push(<MyDevicesCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<MyDevicesCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
 
       // Pilot Things
-      if (includes(resp.result, "PILOT_THINGS")) {
-        configured.push(<PilotThingsCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<PilotThingsCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
+      // if (includes(resp.result, "PILOT_THINGS")) {
+      //   configured.push(<PilotThingsCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<PilotThingsCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
 
       // Semtech LoRa Cloud
-      if(includes(resp.result, "LORACLOUD")) {
-        configured.push(<LoRaCloudCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<LoRaCloudCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
+      // if(includes(resp.result, "LORACLOUD")) {
+      //   configured.push(<LoRaCloudCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<LoRaCloudCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
 
       // Thingsboard
-      if(includes(resp.result, "THINGSBOARD")) {
-        configured.push(<ThingsboardCard organizationID={organizationID} applicationID={applicationID} />);
-      } else {
-        available.push(<ThingsboardCard organizationID={organizationID} applicationID={applicationID} add />);
-      }
+      // if(includes(resp.result, "THINGSBOARD")) {
+      //   configured.push(<ThingsboardCard organizationID={organizationID} applicationID={applicationID} />);
+      // } else {
+      //   available.push(<ThingsboardCard organizationID={organizationID} applicationID={applicationID} add />);
+      // }
 
       this.setState({
         configured: configured,

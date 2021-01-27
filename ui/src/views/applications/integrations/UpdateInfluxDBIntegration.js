@@ -41,9 +41,9 @@ class UpdateInfluxDBIntegration extends Component {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title="Update InfluxDB integration" />
+            <CardHeader title="更新InfluxDB集成" />
             <CardContent>
-              <InfluxDBIntegrationForm submitLabel="Update integration" onSubmit={this.onSubmit} object={this.state.object} />
+              <InfluxDBIntegrationForm submitLabel="更新集成" onSubmit={this.onSubmit} object={this.state.object} />
             </CardContent>
           </Card>
         </Grid>

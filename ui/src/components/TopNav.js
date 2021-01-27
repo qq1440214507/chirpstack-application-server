@@ -147,7 +147,7 @@ class TopNav extends Component {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="toggle drawer"
+            aria-label="切换抽屉"
             onClick={this.handleDrawerToggle}
             className={this.props.classes.menuButton}
           >
@@ -155,12 +155,12 @@ class TopNav extends Component {
           </IconButton>
 
           <div className={this.props.classes.flex}>
-            <img src="/logo/logo.png" className={this.props.classes.logo} alt="ChirpStack.io" />
+            <img src="/logo/logo.png" className={this.props.classes.logo} alt="智安汇" />
           </div>
 
           <form onSubmit={this.onSearchSubmit}>
             <Input
-              placeholder="Search organization, application, gateway or device"
+              placeholder="搜索组织，应用，网关或者设备"
               className={this.props.classes.search}
               disableUnderline={true}
               value={this.state.search || ""}
@@ -206,8 +206,8 @@ class TopNav extends Component {
             open={open}
             onClose={this.onMenuClose}
           >
-            {!this.state.oidcEnabled && <MenuItem component={Link} to={`/users/${this.props.user.id}/password`}>Change password</MenuItem>}
-            <MenuItem onClick={this.onLogout}>Logout</MenuItem>
+            {!this.state.oidcEnabled && <MenuItem component={Link} to={`/users/${this.props.user.id}/password`}>修改密码</MenuItem>}
+            <MenuItem onClick={this.onLogout}>退出登录</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

@@ -36,7 +36,7 @@ class UpdateDeviceProfile extends Component {
           <Card className={this.props.classes.card}>
             <CardContent>
               <DeviceProfileForm
-                submitLabel="Update device-profile"
+                submitLabel="更新设备配置文件"
                 object={this.props.deviceProfile}
                 onSubmit={this.onSubmit}
                 match={this.props.match}

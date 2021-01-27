@@ -33,7 +33,7 @@ class DeviceStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("created");
+        this.notify("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -64,7 +64,7 @@ class DeviceStore extends EventEmitter {
       .then(checkStatus)
       .then(resp => {
         this.emit("update");
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -79,7 +79,7 @@ class DeviceStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("deleted");
+        this.notify("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -120,7 +120,7 @@ class DeviceStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifyKeys("created");
+        this.notifyKeys("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -137,7 +137,7 @@ class DeviceStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifyKeys("updated");
+        this.notifyKeys("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -170,7 +170,7 @@ class DeviceStore extends EventEmitter {
         dispatcher.dispatch({
           type: "CREATE_NOTIFICATION",
           notification: {
-            type: "success",
+            type: "成功",
             message: "device has been (re)activated",
           },
         });
@@ -218,7 +218,7 @@ class DeviceStore extends EventEmitter {
         dispatcher.dispatch({
           type: "CREATE_NOTIFICATION",
           notification: {
-            type: "error",
+            type: "错误",
             message: msg.error.message,
           },
         });
@@ -267,7 +267,7 @@ class DeviceStore extends EventEmitter {
         dispatcher.dispatch({
           type: "CREATE_NOTIFICATION",
           notification: {
-            type: "error",
+            type: "错误",
             message: msg.error.message,
           },
         });
@@ -295,8 +295,8 @@ class DeviceStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "device has been " + action,
+        type: "成功",
+        message: "设备已" + action,
       },
     });
   }
@@ -305,8 +305,8 @@ class DeviceStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "device-keys have been " + action,
+        type: "成功",
+        message: "设备秘钥已" + action,
       },
     });
   }

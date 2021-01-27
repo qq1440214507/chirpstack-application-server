@@ -32,7 +32,7 @@ class InternalStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("api key has been deleted");
+        this.notify("API秘钥已创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -48,7 +48,7 @@ class InternalStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("api key has been created");
+        this.notify("API秘钥已删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -96,7 +96,7 @@ class InternalStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
+        type: "成功",
         message: msg,
       },
     });

@@ -18,7 +18,7 @@ import InternalStore from "../../stores/InternalStore";
 
 class APIKeyRow extends Component {
   onDelete = () => {
-    if (window.confirm("Are you sure you want to delete this api key?")) {
+    if (window.confirm("您确定删除API秘钥吗?")) {
       InternalStore.deleteAPIKey(this.props.obj.id, resp => {
         this.props.history.push(`/organizations/${this.props.match.params.organizationID}/api-keys`);
       });
@@ -34,7 +34,7 @@ class APIKeyRow extends Component {
         <TableCell>{this.props.obj.id}</TableCell>
         <TableCell>{this.props.obj.name}</TableCell>
         <TableCell align="right">
-          <IconButton aria-label="delete"><Delete onClick={this.onDelete} /></IconButton>
+          <IconButton aria-label="删除"><Delete onClick={this.onDelete} /></IconButton>
         </TableCell>
       </TableRow>
     );
@@ -63,20 +63,20 @@ class ListOrganizationAPIKeys extends Component {
         <TitleBar
           buttons={
             <TitleBarButton
-              label="Create"
+              label="创建"
               icon={<Plus />}
               to={`/organizations/${this.props.match.params.organizationID}/api-keys/create`}
             />
           }
         >
-          <TitleBarTitle title="Organization API keys" />
+          <TitleBarTitle title="组织API秘钥" />
         </TitleBar>
         <Grid item xs={12}>
           <DataTable
             header={
               <TableRow>
                 <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
+                <TableCell>名称</TableCell>
                 <TableCell></TableCell>
               </TableRow>
             }

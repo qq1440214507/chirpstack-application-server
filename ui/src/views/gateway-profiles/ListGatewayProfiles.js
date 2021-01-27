@@ -62,26 +62,17 @@ class ListGatewayProfiles extends Component {
           aria-labelledby="help-dialog-title"
           aria-describedby="help-dialog-description"
         >
-          <DialogTitle id="help-dialog-title">Gateway Profile help</DialogTitle>
+          <DialogTitle id="help-dialog-title">网关配置文件说明</DialogTitle>
           <DialogContent>
             <DialogContentText id="help-dialog-description">
-              The only purpose of a Gateway Profile is to (re)configure one or multiple gateways with the
-              configuration properties that are set by the Gateway Profile.<br /><br />
-
-              When the ChirpStack Network Server detects that the configuration of a gateway is out-of-sync
-              with its Gateway Profile, it will push a configuration command to the gateway in order to
-              update its configuration.<br /><br />
-
-              Please note that this feature is optional and only works in combination with the
-              ChirpStack Concentratord component.<br /><br />
-
-              Also note that the Gateway Profile does not change the way how devices are behaving.
-              To configure the channel-plan that must be used by devices, update the
-              ChirpStack Network Server configuration.
+              网关配置文件的唯一作用就是使用它配置的属性来重新配置一个或者多个网关.<br /><br />
+              如果网络服务器检测到网关的配置与其网关配置文件不同步时，它将向网关推送配置命令让网关更新配置。<br /><br />
+              请注意，此功能是可选的，仅与ChirpStack Concentratord组件结合使用。<br /><br />
+              另外，网关配置文件不会修改设备的行为方式。若要修改设备信道，请更新网络服务器配置。
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.toggleHelpDialog} color="primary">Close</Button>
+            <Button onClick={this.toggleHelpDialog} color="primary">关闭</Button>
           </DialogActions>
         </Dialog>
 
@@ -89,26 +80,26 @@ class ListGatewayProfiles extends Component {
           buttons={[
             <TitleBarButton
               key={1}
-              label="Create"
+              label="创建"
               icon={<Plus />}
               to={`/gateway-profiles/create`}
             />,
             <TitleBarButton
               key={2}
-              label="Help"
+              label="帮助"
               icon={<HelpCircleOutline />}
               onClick={this.toggleHelpDialog}
             />
           ]}
         >
-          <TitleBarTitle title="Gateway-profiles" />
+          <TitleBarTitle title="网关配置文件" />
         </TitleBar>
         <Grid item xs={12}>
           <DataTable
             header={
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Network-server</TableCell>
+                <TableCell>名称</TableCell>
+                <TableCell>网络服务器</TableCell>
               </TableRow>
             }
             getPage={this.getPage}

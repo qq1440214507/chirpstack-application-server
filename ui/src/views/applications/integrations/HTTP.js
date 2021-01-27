@@ -21,7 +21,7 @@ const styles = {
 
 class HTTPCard extends Component {
   delete = () => {
-    if (window.confirm("Are you sure you want to remove the HTTP integration?")) {
+    if (window.confirm("您确定要删除HTTP集成?")) {
       ApplicationStore.deleteHTTPIntegration(this.props.applicationID, () => {});
     }
   }
@@ -39,7 +39,7 @@ class HTTPCard extends Component {
             HTTP
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            The HTTP integration forwards events to a user-configurable endpoint as POST requests.
+              HTTP集成将事件作为POST请求转发到用户配置的端点。
           </Typography>
         </CardContent>
         <CardActions>
@@ -53,7 +53,7 @@ class HTTPCard extends Component {
           </Button>}
             {!!this.props.add && <Link to={`/organizations/${this.props.organizationID}/applications/${this.props.applicationID}/integrations/http/create`}>
               <Button size="small" color="primary">
-                Add
+                添加
               </Button>
             </Link>}
         </CardActions>

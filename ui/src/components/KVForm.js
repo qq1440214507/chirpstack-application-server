@@ -42,7 +42,7 @@ class KVForm extends FormComponent {
         <Grid item xs={4}>
           <TextField
             id="key"
-            label="Name"
+            label="名称"
             margin="normal"
             value={this.state.object.key || ""}
             onChange={this.onChange}
@@ -53,7 +53,7 @@ class KVForm extends FormComponent {
         <Grid item xs={7}>
           <TextField
             id="value"
-            label="Value"
+            label="值"
             margin="normal"
             value={this.state.object.value || ""}
             onChange={this.onChange}
@@ -62,7 +62,7 @@ class KVForm extends FormComponent {
           />
         </Grid>
         <Grid item xs={1} className={this.props.classes.delete}>
-          {!!!this.props.disabled && <IconButton aria-label="delete" onClick={this.onDelete}>
+          {!!!this.props.disabled && <IconButton aria-label="删除" onClick={this.onDelete}>
             <Delete />
           </IconButton>}
         </Grid>

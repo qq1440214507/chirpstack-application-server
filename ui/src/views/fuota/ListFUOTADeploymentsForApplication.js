@@ -68,10 +68,10 @@ class ListFUOTADeploymentsForApplication extends Component {
           <DataTable
             header={
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Created at</TableCell>
-                <TableCell>Updated at</TableCell>
-                <TableCell>State</TableCell>
+                <TableCell>名称</TableCell>
+                <TableCell>创建</TableCell>
+                <TableCell>更新</TableCell>
+                <TableCell>状态</TableCell>
               </TableRow>
             }
             getPage={this.getPage}

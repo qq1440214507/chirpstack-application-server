@@ -60,17 +60,17 @@ class AddDeviceForm extends FormComponent {
         onSubmit={this.onSubmit}
       >
         <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.FormLabel} required>Device</FormLabel>
+          <FormLabel className={this.props.classes.FormLabel} required>设备</FormLabel>
           <AutocompleteSelect
             id="devEUI"
-            label="Select device"
+            label="选择设备"
             value={this.state.object.devEUI || ""}
             onChange={this.onChange}
             getOption={this.getDeviceOption}
             getOptions={this.getDeviceOptions}
             margin="none"
           />
-          <FormHelperText>Search on device by it's name or device EUI. Only devices part of the same service-profile as the multicast-group can be added (and are visible).</FormHelperText>
+          <FormHelperText>按名称或设备EUI搜索设备。只能添加与多播组属于同一服务配置文件的设备(且可见)。</FormHelperText>
         </FormControl>
       </Form>
     );
@@ -109,17 +109,17 @@ class AddDeviceToMulticastGroup extends Component {
     return(
       <Grid container spacing={4}>
         <TitleBar>
-          <TitleBarTitle title="Multicast-groups" to={`/organizations/${this.props.match.params.organizationID}/multicast-groups`} />
+          <TitleBarTitle title="组播组" to={`/organizations/${this.props.match.params.organizationID}/multicast-groups`} />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.multicastGroup.name} to={`/organizations/${this.props.match.params.organizationID}/multicast-groups/${this.state.multicastGroup.id}`} />
           <TitleBarTitle title="/" />
-          <TitleBarTitle title="Add device" />
+          <TitleBarTitle title="添加设备" />
         </TitleBar>
 
         <Grid item xs={12}>
           <Card className={this.props.classes.card}>
             <CardContent>
-              <AddDeviceForm submitLabel="Add device" onSubmit={this.onSubmit} serviceProfileID={this.state.multicastGroup.serviceProfileID} />
+              <AddDeviceForm submitLabel="添加设备" onSubmit={this.onSubmit} serviceProfileID={this.state.multicastGroup.serviceProfileID} />
             </CardContent>
           </Card>
         </Grid>

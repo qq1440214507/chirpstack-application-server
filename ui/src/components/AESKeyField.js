@@ -50,7 +50,7 @@ function CopyMenu(props) {
             aria-controls="fade-menu" 
             aria-haspopup="true" 
             onClick={handleClick}
-            aria-label="Toggle key visibility"
+            aria-label="切换key显示/隐藏"
             >
             <Copy /> 
         </IconButton>
@@ -232,17 +232,17 @@ class AESKeyField extends Component {
         InputProps={{
           inputComponent: AESKeyHEXMask,
           endAdornment: <InputAdornment position="end">
-            {this.state.showKey && <Tooltip title="Toggle the byte order of the input. Some devices use LSB.">
+            {this.state.showKey && <Tooltip title="切换输入的字节顺序，某些设备使用LSB。">
               <Button
-                aria-label="Toggle byte order"
+                aria-label="切换字节顺序"
                 onClick={this.toggleByteOrder}
               >
                 {this.state.msb ? "MSB": "LSB"}
               </Button>
             </Tooltip>}
-            {this.props.random && this.state.showKey && !this.props.disabled && <Tooltip title="Generate random key.">
+            {this.props.random && this.state.showKey && !this.props.disabled && <Tooltip title="生成随机秘钥。">
               <IconButton
-                aria-label="Generate random key"
+                aria-label="生成随机秘钥"
                 onClick={this.randomKey}
               >
                 <Refresh />
@@ -253,7 +253,7 @@ class AESKeyField extends Component {
                 value={this.state.value}
               />}
             <IconButton
-              aria-label="Toggle key visibility"
+              aria-label="切换秘钥显示/隐藏"
               onClick={this.toggleShowPassword}
             >
               {this.state.showKey ? <EyeOff /> : <Eye />}

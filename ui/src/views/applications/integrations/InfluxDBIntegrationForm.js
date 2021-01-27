@@ -41,7 +41,7 @@ class InfluxDBIntegrationForm extends FormComponent {
       <Form submitLabel={this.props.submitLabel} onSubmit={this.onSubmit}>
         <TextField
           id="endpoint"
-          label="API endpoint (write)"
+          label="API端点(写入)"
           placeholder="http://localhost:8086/write"
           value={this.state.object.endpoint || ""}
           onChange={this.onChange}
@@ -51,7 +51,7 @@ class InfluxDBIntegrationForm extends FormComponent {
         />
         <TextField
           id="username"
-          label="Username"
+          label="用户名"
           value={this.state.object.username || ""}
           onChange={this.onChange}
           margin="normal"
@@ -59,7 +59,7 @@ class InfluxDBIntegrationForm extends FormComponent {
         />
         <TextField
           id="password"
-          label="Password"
+          label="密码"
           value={this.state.object.password || ""}
           type="password"
           onChange={this.onChange}
@@ -68,7 +68,7 @@ class InfluxDBIntegrationForm extends FormComponent {
         />
         <TextField
           id="db"
-          label="Database name"
+          label="数据库名称"
           value={this.state.object.db || ""}
           onChange={this.onChange}
           margin="normal"
@@ -77,24 +77,24 @@ class InfluxDBIntegrationForm extends FormComponent {
         />
         <TextField
           id="retentionPolicyName"
-          label="Retention policy name"
-          helperText="Sets the target retention policy for the write. InfluxDB writes to the DEFAULT retention policy if you do not specify a retention policy."
+          label="保留策略名称"
+          helperText="设置写入的目标保留策略。如果您未指定保留策略，则InfluxDB会写入DEFAULT保留策略。"
           value={this.state.object.retentionPolicyName || ""}
           onChange={this.onChange}
           margin="normal"
           fullWidth
         />
         <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Timestamp precision</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>时间戳精度</FormLabel>
           <AutocompleteSelect
             id="precision"
-            label="Select timestamp precision"
+            label="选择时间戳精度"
             value={this.state.object.precision || ""}
             onChange={this.onChange}
             getOptions={this.getPrecisionOptions}
           />
           <FormHelperText>
-            It is recommented to use the least precise precision possible as this can result in significant improvements in compression.
+              建议使用尽可能低的精度，因为这会有更好的压缩效果。
           </FormHelperText>
         </FormControl>
       </Form>

@@ -117,37 +117,37 @@ class FUOTADeploymentDetails extends Component {
       <Grid container spacing={4}>
         <Grid item xs={6}>
           <Card>
-            <CardHeader title="Details" />
+            <CardHeader title="详情" />
             <CardContent>
               <Table>
                 <TableBody>
                   <TableRow>
-                    <TableCell>Job name</TableCell>
+                    <TableCell>作业名称</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.name}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Redundant frames</TableCell>
+                    <TableCell>冗余帧</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.redundancy}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Unicast timeout</TableCell>
+                    <TableCell>单播超时</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.unicastTimeout}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Data-rate</TableCell>
+                    <TableCell>数据速率</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.dr}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Frequency</TableCell>
+                    <TableCell>频率</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.frequency}Hz</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Multicast-group type</TableCell>
+                    <TableCell>组播组类型</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.groupType}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Multicast timeout</TableCell>
-                    <TableCell>{multicastTimeout} seconds</TableCell>
+                    <TableCell>组播超时</TableCell>
+                    <TableCell>{multicastTimeout}秒</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -157,24 +157,24 @@ class FUOTADeploymentDetails extends Component {
 
         <Grid item xs={6}>
           <Card>
-            <CardHeader title="Status" />
+            <CardHeader title="状态" />
             <CardContent>
               <Table>
                 <TableBody>
                   <TableRow>
-                    <TableCell>Created at</TableCell>
+                    <TableCell>创建</TableCell>
                     <TableCell>{createdAt}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Updated at</TableCell>
+                    <TableCell>更新</TableCell>
                     <TableCell>{updatedAt}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>State</TableCell>
+                    <TableCell>状态</TableCell>
                     <TableCell>{this.props.fuotaDeployment.fuotaDeployment.state}</TableCell>
                   </TableRow>
                   {this.props.fuotaDeployment.fuotaDeployment.state !== "DONE" && <TableRow>
-                    <TableCell>Next step at</TableCell>
+                    <TableCell>下一步</TableCell>
                     <TableCell>{nextStepAfter}</TableCell>
                   </TableRow>}
                 </TableBody>
@@ -182,13 +182,13 @@ class FUOTADeploymentDetails extends Component {
             </CardContent>
             {this.props.fuotaDeployment.fuotaDeployment.state !== "DONE" && <CardContent>
               <Typography variant="subtitle2" gutterBottom>
-                Job progress:
+                作业进度:
               </Typography>
               <LinearProgress variant="determinate" value={this.state.progress} />
             </CardContent>}
             {this.props.fuotaDeployment.fuotaDeployment.state !== "DONE" && <CardContent>
               <Typography variant="subtitle2" gutterBottom>
-                State progress:
+                状态进度:
               </Typography>
                 <LinearProgress variant="determinate" value={this.state.stepProgress} />
             </CardContent>}

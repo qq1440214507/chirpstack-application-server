@@ -46,7 +46,7 @@ class ServiceProfileLayout extends Component {
   }
 
   deleteServiceProfile() {
-    if (window.confirm("Are you sure you want to delete this service-profile?")) {
+    if (window.confirm("您是否删除这个服务配置文件?")) {
       ServiceProfileStore.delete(this.props.match.params.serviceProfileID, resp => {
         this.props.history.push(`/organizations/${this.props.match.params.organizationID}/service-profiles`);
       });
@@ -65,7 +65,7 @@ class ServiceProfileLayout extends Component {
             <Admin>
               <TitleBarButton
                 key={1}
-                label="Delete"
+                label="删除"
                 icon={<Delete />}
                 color="secondary"
                 onClick={this.deleteServiceProfile}
@@ -73,7 +73,7 @@ class ServiceProfileLayout extends Component {
             </Admin>
           }
         >
-          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/service-profiles`} title="Service-profiles" />
+          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/service-profiles`} title="服务配置文件" />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.serviceProfile.serviceProfile.name} />
         </TitleBar>

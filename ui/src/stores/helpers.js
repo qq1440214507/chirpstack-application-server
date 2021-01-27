@@ -15,7 +15,7 @@ export function errorHandler(error) {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "error",
+        type: "错误",
         message: error.message,
       },
     });
@@ -26,7 +26,7 @@ export function errorHandler(error) {
       dispatcher.dispatch({
         type: "CREATE_NOTIFICATION",
         notification: {
-          type: "error",
+          type: "错误",
           message: error.response.obj.error + " (code: " + error.response.obj.code + ")",
         },
       });
@@ -39,7 +39,7 @@ export function errorHandlerLogin(error) {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "error",
+        type: "错误",
         message: error.message,
       },
     });
@@ -47,7 +47,7 @@ export function errorHandlerLogin(error) {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "error",
+        type: "错误",
         message: error.response.obj.error + " (code: " + error.response.obj.code + ")",
       },
     });
@@ -59,7 +59,7 @@ export function errorHandlerIgnoreNotFound(error) {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "error",
+        type: "错误",
         message: error.message,
       },
     });
@@ -70,7 +70,7 @@ export function errorHandlerIgnoreNotFound(error) {
       dispatcher.dispatch({
         type: "CREATE_NOTIFICATION",
         notification: {
-          type: "error",
+          type: "错误",
           message: error.response.obj.error + " (code: " + error.response.obj.code + ")",
         },
       });

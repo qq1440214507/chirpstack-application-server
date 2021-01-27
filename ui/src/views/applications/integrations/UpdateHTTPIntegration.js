@@ -41,9 +41,9 @@ class UpdateHTTPIntegration extends Component {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title="Update HTTP integration" />
+            <CardHeader title="更新HTTP集成" />
             <CardContent>
-              <HTTPIntegrationForm submitLabel="Update integration" onSubmit={this.onSubmit} object={this.state.object} />
+              <HTTPIntegrationForm submitLabel="更新集成" onSubmit={this.onSubmit} object={this.state.object} />
             </CardContent>
           </Card>
         </Grid>

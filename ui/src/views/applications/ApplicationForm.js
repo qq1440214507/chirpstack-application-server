@@ -50,9 +50,9 @@ class ApplicationForm extends FormComponent {
 
   getPayloadCodecOptions(search, callbackFunc) {
     const payloadCodecOptions = [
-      {value: "", label: "None"},
+      {value: "", label: "无"},
       {value: "CAYENNE_LPP", label: "Cayenne LPP"},
-      {value: "CUSTOM_JS", label: "Custom JavaScript codec functions"},
+      {value: "CUSTOM_JS", label: "自定义JavaScript编解码方法"},
     ];
 
     callbackFunc(payloadCodecOptions);
@@ -107,17 +107,17 @@ function Decode(fPort, bytes) {
       >
         <TextField
           id="name"
-          label="Application name"
+          label="应用名称"
           margin="normal"
           value={this.state.object.name || ""}
           onChange={this.onChange}
-          helperText="The name may only contain words, numbers and dashes."
+          helperText="名称只能包含英文，数字和破折号。"
           fullWidth
           required
         />
         <TextField
           id="description"
-          label="Application description"
+          label="应用描述"
           margin="normal"
           value={this.state.object.description || ""}
           onChange={this.onChange}
@@ -125,33 +125,33 @@ function Decode(fPort, bytes) {
           required
         />
         {!this.props.update && <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Service-profile</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>服务配置文件</FormLabel>
           <AutocompleteSelect
             id="serviceProfileID"
-            label="Select service-profile"
+            label="选择服务配置文件"
             value={this.state.object.serviceProfileID || ""}
             onChange={this.onChange}
             getOption={this.getServiceProfileOption}
             getOptions={this.getServiceProfileOptions}
           />
           <FormHelperText>
-            The service-profile to which this application will be attached. Note that you can't change this value after the application has been created.
+            应用程序的服务配置文件。请注意，创建应用程序后，您将无法更改它。
           </FormHelperText>
         </FormControl>}
         {this.state.object.payloadCodec !== "" && this.state.object.payloadCodec !== undefined && <div>
           <FormControl fullWidth margin="normal">
-            <FormLabel className={this.props.classes.formLabel}>Payload codec</FormLabel>
+            <FormLabel className={this.props.classes.formLabel}>编解码器</FormLabel>
             <AutocompleteSelect
               id="payloadCodec"
-              label="Select payload codec"
+              label="选择一个编解码器"
               value={this.state.object.payloadCodec || ""}
               onChange={this.onChange}
               getOptions={this.getPayloadCodecOptions}
             />
             <FormHelperText>
-              By defining a payload codec, ChirpStack Application Server can encode and decode the binary device payload for you. 
-              <strong>Important note</strong>: the payload fields have moved to the device-profile. For backward-compatibility and migration, existing codec settings are still visible.
-              Codec settings on the device-profile have priority over the application codec settings.
+              通过定义编解码器，应用服务器可以为您编码和解码二进制设备有效负载。
+              <strong>重要提示</strong>: 这个配置已移至设备配置文件。为了兼容，现有的编解码器设置仍然可见。
+              设备配置文件上的编解码器设置优先于应用程序编解码器设置。
             </FormHelperText>
           </FormControl>
           {this.state.object.payloadCodec === "CUSTOM_JS" && <FormControl fullWidth margin="normal">
@@ -162,8 +162,8 @@ function Decode(fPort, bytes) {
               className={this.props.classes.codeMirror}
             />
             <FormHelperText>
-              The function must have the signature <strong>function Decode(fPort, bytes)</strong> and must return an object.
-              ChirpStack Application Server will convert this object to JSON.
+              这个方法必须具有签名 <strong>function Decode(fPort, bytes)</strong> 并且必须返回一个object对象。
+              应用服务器将把它转换为json数据。
             </FormHelperText>
           </FormControl>}
           {this.state.object.payloadCodec === "CUSTOM_JS" && <FormControl fullWidth margin="normal">
@@ -174,14 +174,13 @@ function Decode(fPort, bytes) {
               className={this.props.classes.codeMirror}
             />
             <FormHelperText>
-              The function must have the signature <strong>function Encode(fPort, obj)</strong> and must return an array
-              of bytes.
+              这个方法必须具有签名<strong>function Encode(fPort, obj)</strong> 并且必须返回一个Byte数组
             </FormHelperText>
           </FormControl>}
         </div>}
         {this.state.object.payloadCodec === "" && <FormControl fullWidth margin="normal">
           <Typography variant="body1">
-            Note: The payload codec fields have moved to the device-profile.
+            注意: 编解码器配置已经移动到设备配置文件.
           </Typography>
         </FormControl>}
       </Form>

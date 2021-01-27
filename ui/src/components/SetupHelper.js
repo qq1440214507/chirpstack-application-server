@@ -147,19 +147,19 @@ class SetupHelper extends Component {
           open={this.state.nsDialog}
           onClose={this.toggleDialog.bind(this, "nsDialog")}
         >
-          <DialogTitle>Add a network-server?</DialogTitle>
+          <DialogTitle>添加一个网络服务器?</DialogTitle>
           <DialogContent>
             <DialogContentText paragraph>
-              ChirpStack Application Server isn't connected to a ChirpStack Network Server network-server.
-              Did you know that ChirpStack Application Server can connect to multiple ChirpStack Network Server instances, e.g. to support multiple regions?
+              应用程序服务器未连接到网络服务器网络服务器。
+              应用服务器可以连接到多个网络服务器实例，例如:支持多个地区。
             </DialogContentText>
             <DialogContentText>
-              Would you like to connect to a network-server now?
+              您现在要连接到网络服务器吗?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" component={Link} to="/network-servers/create" onClick={this.toggleDialog.bind(this, "nsDialog")}>Add network-server</Button>
-            <Button color="primary" onClick={this.toggleDialog.bind(this, "nsDialog")}>Dismiss</Button>
+            <Button color="primary" component={Link} to="/network-servers/create" onClick={this.toggleDialog.bind(this, "nsDialog")}>添加网络服务器</Button>
+            <Button color="primary" onClick={this.toggleDialog.bind(this, "nsDialog")}>取消</Button>
           </DialogActions>
         </Dialog>
 
@@ -167,19 +167,19 @@ class SetupHelper extends Component {
           open={this.state.spDialog}
           onClose={this.toggleDialog.bind(this, "spDialog")}
         >
-          <DialogTitle>Add a service-profile?</DialogTitle>
+          <DialogTitle>添加一个服务配置文件?</DialogTitle>
           <DialogContent>
             <DialogContentText paragraph>
-              The selected organization does not have a service-profile yet.
-              A service-profile connects an organization to a network-server and defines the features that an organization can use on this network-server.
+              当前组织还没有服务配置文件。
+              服务配置文件将组织连接到网络服务器，并定义组织可以在该网络服务器上使用的功能。
             </DialogContentText>
             <DialogContentText>
-              Would you like to create a service-profile?
+              你想创建一个服务配置文件吗?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" component={Link} to={`/organizations/${orgID}/service-profiles/create`} onClick={this.toggleDialog.bind(this, "spDialog")}>Create service-profile</Button>
-            <Button color="primary" onClick={this.toggleDialog.bind(this, "spDialog")}>Dismiss</Button>
+            <Button color="primary" component={Link} to={`/organizations/${orgID}/service-profiles/create`} onClick={this.toggleDialog.bind(this, "spDialog")}>创建服务配置文件</Button>
+            <Button color="primary" onClick={this.toggleDialog.bind(this, "spDialog")}>取消</Button>
           </DialogActions>
         </Dialog>
 
@@ -187,19 +187,19 @@ class SetupHelper extends Component {
           open={this.state.dpDialog}
           onClose={this.toggleDialog.bind(this, "dpDialog")}
         >
-          <DialogTitle>Add a device-profile?</DialogTitle>
+          <DialogTitle>添加设备配置文件?</DialogTitle>
           <DialogContent>
             <DialogContentText paragraph>
-              The selected organization does not have a device-profile yet.
-              A device-profile defines the capabilities and boot parameters of a device. You can create multiple device-profiles for different kind of devices.
+              当前组织还没有设备配置文件。
+              设备配置文件定义设备的功能和引导参数。 您可以为不同类型的设备创建多个设备配置文件。
             </DialogContentText>
             <DialogContentText>
-              Would you like to create a device-profile?
+              你想创建一个设备配置文件吗?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" component={Link} to={`/organizations/${orgID}/device-profiles/create`} onClick={this.toggleDialog.bind(this, "dpDialog")}>Create device-profile</Button>
-            <Button color="primary" onClick={this.toggleDialog.bind(this, "dpDialog")}>Dismiss</Button>
+            <Button color="primary" component={Link} to={`/organizations/${orgID}/device-profiles/create`} onClick={this.toggleDialog.bind(this, "dpDialog")}>创建设备配置文件</Button>
+            <Button color="primary" onClick={this.toggleDialog.bind(this, "dpDialog")}>取消</Button>
           </DialogActions>
         </Dialog>
       </div>

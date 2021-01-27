@@ -168,44 +168,44 @@ class DeviceFrames extends Component {
           aria-labelledby="help-dialog-title"
           aria-describedby="help-dialog-description"
         >
-          <DialogTitle id="help-dialog-title">Help</DialogTitle>
+          <DialogTitle id="help-dialog-title">帮助</DialogTitle>
           <DialogContent>
             <DialogContentText id="help-dialog-description">
-              The frames below are the raw (and encrypted) LoRaWAN PHYPayload frames as seen by the gateway(s). This data is intedend for debugging only.
+              下面的帧是网关看到的原始（和加密）LoRaWAN PHY有效载荷帧。此数据仅用于调试。
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.toggleHelpDialog} color="primary">Close</Button>
+            <Button onClick={this.toggleHelpDialog} color="primary">关闭</Button>
           </DialogActions>
         </Dialog>
 
         <Grid item xs={12} className={this.props.classes.buttons}>
           <Button variant="outlined" className={this.props.classes.button} onClick={this.toggleHelpDialog}>
             <HelpCircleOutline className={this.props.classes.icon} />
-            Help
+            帮助
           </Button>
           {!this.state.paused && <Button variant="outlined" className={this.props.classes.button} onClick={this.togglePause}>
             <Pause className={this.props.classes.icon} />
-            Pause
+            暂停
           </Button>}
           {this.state.paused && <Button variant="outlined" className={this.props.classes.button} onClick={this.togglePause}>
             <Play className={this.props.classes.icon} />
-            Resume
+            恢复
           </Button>}
           <Button variant="outlined" className={this.props.classes.button} onClick={this.onDownload}>
             <Download className={this.props.classes.icon} />
-            Download
+            下载
           </Button>
           <Button variant="outlined" className={this.props.classes.button} color="secondary" onClick={this.onClear}>
             <Delete className={this.props.classes.icon} />
-            Clear
+            清除
           </Button>
         </Grid>
         <Grid item xs={12}>
           {!this.state.connected && <div className={this.props.classes.center}>
             <Chip
               color="secondary"
-              label="Not connected to Websocket API"
+              label="未连接到Websocket API"
               avatar={<Avatar><AlertCircleOutline /></Avatar>}
             />
           </div>}

@@ -74,14 +74,14 @@ class DeviceQueueItemForm extends FormComponent {
           margin="normal"
           value={this.state.object.fPort || ""}
           onChange={this.onChange}
-          helperText="Please note that the fPort value must be > 0."
+          helperText="请注意fPort的值必须大于0."
           required
           fullWidth
           type="number"
         />
         <FormControl fullWidth margin="normal">
           <FormControlLabel
-            label="Confirmed downlink"
+            label="确认下行"
             control={
               <Checkbox
                 id="confirmed"
@@ -93,12 +93,12 @@ class DeviceQueueItemForm extends FormComponent {
           />
         </FormControl>
         <Tabs value={this.state.tab} onChange={this.onTabChange} indicatorColor="primary">
-          <Tab label="Base64 encoded" />
-          <Tab label="JSON object" />
+          <Tab label="Base64编码" />
+          <Tab label="JSON对象" />
         </Tabs>
         {this.state.tab === 0 && <TextField
           id="data"
-          label="Base64 encoded string"
+          label="Base64编码串"
           margin="normal"
           value={this.state.object.data || ""}
           onChange={this.onChange}
@@ -113,7 +113,7 @@ class DeviceQueueItemForm extends FormComponent {
             onBeforeChange={this.onCodeChange.bind(this, 'jsonObject')}
           />
           <FormHelperText>
-            The device must be configured with a Device Profile supporting a Codec which is able to encode the given (JSON) payload.
+            设备必须配置有支持编解码器的设备配置文件，该编码解码器能够对给定的（JSON）有效负载进行编码。
           </FormHelperText>
         </FormControl>}
       </Form>

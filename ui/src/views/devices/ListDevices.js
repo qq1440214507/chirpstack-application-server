@@ -89,7 +89,7 @@ class ListDevices extends Component {
           <Grid item xs={12} className={this.props.classes.buttons}>
             <Button variant="outlined" className={this.props.classes.button} component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/devices/create`}>
               <Plus className={this.props.classes.icon} />
-              Create
+              创建
             </Button>
           </Grid>
         </DeviceAdmin>
@@ -97,12 +97,12 @@ class ListDevices extends Component {
           <DataTable
             header={
               <TableRow>
-                <TableCell>Last seen</TableCell>
-                <TableCell>Device name</TableCell>
-                <TableCell>Device EUI</TableCell>
-                <TableCell>Device profile</TableCell>
-                <TableCell>Link margin</TableCell>
-                <TableCell>Battery</TableCell>
+                <TableCell>最后活跃</TableCell>
+                <TableCell>设备名称</TableCell>
+                <TableCell>设备EUI</TableCell>
+                <TableCell>设备配置文件</TableCell>
+                <TableCell>链路余量</TableCell>
+                <TableCell>电量</TableCell>
               </TableRow>
             }
 

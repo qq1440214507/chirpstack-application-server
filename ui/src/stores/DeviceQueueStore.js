@@ -20,7 +20,7 @@ class DeviceQueueStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.notify("device-queue has been flushed");
+          this.notify("设备队列已刷新");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -50,7 +50,7 @@ class DeviceQueueStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.notify("device-queue item has been created");
+          this.notify("设备队列已创建");
           this.emit("enqueue");
           callbackFunc(resp.obj);
         })
@@ -62,7 +62,7 @@ class DeviceQueueStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
+        type: "成功",
         message: msg,
       },
     });

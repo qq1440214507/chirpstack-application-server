@@ -29,7 +29,7 @@ class UpdateGatewayProfile extends Component {
           <Card>
             <CardContent>
               <GatewayProfileForm
-                submitLabel="Update gateway-profile"
+                submitLabel="更新网关配置文件"
                 object={this.props.gatewayProfile}
                 onSubmit={this.onSubmit}
                 update={true}

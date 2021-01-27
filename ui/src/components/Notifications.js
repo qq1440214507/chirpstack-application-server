@@ -36,7 +36,7 @@ class Item extends Component {
         action={[
           <IconButton
             key="close"
-            aria-label="Close"
+            aria-label="关闭"
             color="inherit"
             onClick={this.onClose}
           >

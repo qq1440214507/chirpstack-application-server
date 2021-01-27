@@ -22,7 +22,7 @@ class NetworkServerStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifiy("created");
+        this.notifiy("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -52,7 +52,7 @@ class NetworkServerStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifiy("updated");
+        this.notifiy("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -63,8 +63,8 @@ class NetworkServerStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "network-server has been " + action,
+        type: "成功",
+        message: "网络服务器已" + action,
       },
     });
   }
@@ -76,7 +76,7 @@ class NetworkServerStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifiy("deleted");
+        this.notifiy("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);

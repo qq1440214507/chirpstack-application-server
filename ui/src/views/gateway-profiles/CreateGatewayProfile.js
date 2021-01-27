@@ -65,33 +65,33 @@ class CreateGatewayProfile extends Component {
           open={this.state.nsDialog}
           onClose={this.closeDialog}
         >
-          <DialogTitle>Add a network-server?</DialogTitle>
+          <DialogTitle>添加一个网络服务器?</DialogTitle>
           <DialogContent>
             <DialogContentText paragraph>
-              ChirpStack Application Server isn't connected to a ChirpStack Network Server network-server.
-              Did you know that ChirpStack Application Server can connect to multiple ChirpStack Network Server instances, e.g. to support multiple regions?
+              应用服务器还没有连接到一个网络服务器。
+              一个应用服务器可以连接到多个网络服务器实例，例如，可以用来支持多个地区？
             </DialogContentText>
             <DialogContentText>
-              Would you like to connect to a network-server now?
+              你想现在连接到网络服务器了吗?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="primary" component={Link} to="/network-servers/create" onClick={this.closeDialog}>Add network-server</Button>
-            <Button color="primary" onClick={this.closeDialog}>Dismiss</Button>
+            <Button color="primary" component={Link} to="/network-servers/create" onClick={this.closeDialog}>添加网络服务器</Button>
+            <Button color="primary" onClick={this.closeDialog}>取消</Button>
           </DialogActions>
         </Dialog>
 
         <TitleBar>
-          <TitleBarTitle title="Gateway-profiles" to="/gateway-profiles" />
+          <TitleBarTitle title="网关配置文件" to="/gateway-profiles" />
           <TitleBarTitle title="/" />
-          <TitleBarTitle title="Create" />
+          <TitleBarTitle title="创建" />
         </TitleBar>
 
         <Grid item xs={12}>
           <Card className={this.props.classes.card}>
             <CardContent>
               <GatewayProfileForm
-                submitLabel="Create gateway-profile"
+                submitLabel="创建网关配置文件"
                 onSubmit={this.onSubmit}
               />
             </CardContent>

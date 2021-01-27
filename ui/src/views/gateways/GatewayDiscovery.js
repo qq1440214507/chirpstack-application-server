@@ -79,22 +79,22 @@ class GatewayDiscovery extends Component {
         <Card>
           <CardContent>
             <Typography variant="body1">
-              No gateway discovery data is available (yet). This could mean:
+              网关(还)没有收到数据。可能是:
             </Typography>
             <List>
               <ListItem dense>
                 <Typography variant="body1">
-                  no discovery 'ping' was emitted yet
+                  发现'ping'还没有发送
                 </Typography>
               </ListItem>
               <ListItem dense>
                 <Typography variant="body1">
-                  the gateway ping feature has been disabled in ChirpStack Application Server
+                  应用程序服务器中已禁用网关ping功能
                 </Typography>
               </ListItem>
               <ListItem dense>
                 <Typography variant="body1">
-                  the discovery 'ping' was not received by any other gateways
+                  发现“ ping”未被任何其他网关接收
                 </Typography>
               </ListItem>
             </List>

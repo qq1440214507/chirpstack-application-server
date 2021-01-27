@@ -56,22 +56,22 @@ class ListMulticastGroups extends Component {
           buttons={
             <DeviceAdmin organizationID={this.props.match.params.organizationID}>
               <TitleBarButton
-                label="Create"
+                label="创建"
                 icon={<Plus />}
                 to={`/organizations/${this.props.match.params.organizationID}/multicast-groups/create`}
               />
             </DeviceAdmin>
           }
         >
-          <TitleBarTitle title="Multicast-groups" />
+          <TitleBarTitle title="组播组" />
         </TitleBar>
         <Grid item xs={12}>
           <DataTable
             header={
               <TableRow>
                 <TableCell className={this.props.classes.idColumn}>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Service-profile</TableCell>
+                <TableCell>名称</TableCell>
+                <TableCell>服务配置文件</TableCell>
               </TableRow>
             }
             getPage={this.getPage}

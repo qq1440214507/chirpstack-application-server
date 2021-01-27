@@ -54,7 +54,7 @@ class AWSSNSCard extends Component {
           </Button>}
             {!!this.props.add && <Link to={`/organizations/${this.props.organizationID}/applications/${this.props.applicationID}/integrations/aws-sns/create`}>
               <Button size="small" color="primary">
-                Add
+                添加
               </Button>
             </Link>}
         </CardActions>

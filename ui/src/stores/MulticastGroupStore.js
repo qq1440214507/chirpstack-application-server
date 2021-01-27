@@ -22,7 +22,7 @@ class MulticastGroupStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("created");
+        this.notify("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -52,7 +52,7 @@ class MulticastGroupStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -66,7 +66,7 @@ class MulticastGroupStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("deleted");
+        this.notify("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -101,7 +101,7 @@ class MulticastGroupStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifyDevice("added to");
+        this.notifyDevice("添加到");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -116,7 +116,7 @@ class MulticastGroupStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notifyDevice("removed from");
+        this.notifyDevice("移出");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -127,8 +127,8 @@ class MulticastGroupStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "multicast-group has been " + action,
+        type: "成功",
+        message: "组播组已" + action,
       },
     });
   }
@@ -137,8 +137,8 @@ class MulticastGroupStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "device has been " + action + " multicast-group",
+        type: "成功",
+        message: "设备已" + action + "组播组",
       },
     });
   }

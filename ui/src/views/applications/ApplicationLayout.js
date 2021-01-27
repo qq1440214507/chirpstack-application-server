@@ -97,7 +97,7 @@ class ApplicationLayout extends Component {
   }
 
   deleteApplication() {
-    if (window.confirm("Are you sure you want to delete this application? This will also delete all devices part of this application.")) {
+    if (window.confirm("您确定要删除此应用程序吗？这还将删除此应用下的所有设备。")) {
       ApplicationStore.delete(this.props.match.params.applicationID, resp => {
         this.props.history.push(`/organizations/${this.props.match.params.organizationID}/applications`);
       });
@@ -137,7 +137,7 @@ class ApplicationLayout extends Component {
           buttons={
             <Admin organizationID={this.props.match.params.organizationID}>
               <TitleBarButton
-                label="Delete"
+                label="删除"
                 icon={<Delete />}
                 color="secondary"
                 onClick={this.deleteApplication}
@@ -145,7 +145,7 @@ class ApplicationLayout extends Component {
             </Admin>
           }
         >
-          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications`} title="Applications" />
+          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications`} title="应用" />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.application.application.name} />
         </TitleBar>
@@ -157,9 +157,9 @@ class ApplicationLayout extends Component {
             indicatorColor="primary"
             className={this.props.classes.tabs}
           >
-            <Tab label="Devices" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}`} />
-            {this.state.admin && <Tab label="Application configuration" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/edit`} />}
-            {this.state.admin && <Tab label="Integrations" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/integrations`} />}
+            <Tab label="设备" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}`} />
+            {this.state.admin && <Tab label="应用配置" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/edit`} />}
+            {this.state.admin && <Tab label="集成" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/integrations`} />}
             {this.state.admin && <Tab label="FUOTA" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments`} />}
           </Tabs>
         </Grid>

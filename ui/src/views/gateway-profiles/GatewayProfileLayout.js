@@ -30,7 +30,7 @@ class GatewayProfileLayout extends Component {
   }
 
   deleteGatewayProfile() {
-    if (window.confirm("Are you sure you want to delete this gateway-profile?")) {
+    if (window.confirm("您确定删除网关配置文件吗?")) {
       GatewayProfileStore.delete(this.props.match.params.gatewayProfileID, () => {
         this.props.history.push("/gateway-profiles");
       });
@@ -48,14 +48,14 @@ class GatewayProfileLayout extends Component {
           buttons={[
             <TitleBarButton
               key={1}
-              label="Delete"
+              label="删除"
               icon={<Delete />}
               color="secondary"
               onClick={this.deleteGatewayProfile}
             />,
           ]}
         >
-          <TitleBarTitle to="/gateway-profiles" title="Gateway-profiles" />
+          <TitleBarTitle to="/gateway-profiles" title="网关配置文件" />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.gatewayProfile.gatewayProfile.name} />
         </TitleBar>

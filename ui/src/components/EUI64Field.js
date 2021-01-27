@@ -142,17 +142,17 @@ class EUI64Field extends Component {
         InputProps={{
           inputComponent: EUI64HEXMask,
           endAdornment: <InputAdornment position="end">
-            <Tooltip title="Toggle the byte order of the input. Some devices use LSB.">
+            <Tooltip title="切换输入的字节顺序。 某些设备使用LSB。">
               <Button
-                aria-label="Toggle byte order"
+                aria-label="切换字节顺序"
                 onClick={this.toggleByteOrder}
               >
                 {this.state.msb ? "MSB": "LSB"}
               </Button>
             </Tooltip>
-            {this.props.random && !this.props.disabled && <Tooltip title="Generate random ID.">
+            {this.props.random && !this.props.disabled && <Tooltip title="生成随机ID。">
               <IconButton
-                aria-label="Generate random key"
+                aria-label="生成随机秘钥"
                 onClick={this.randomKey}
               >
                 <Refresh />

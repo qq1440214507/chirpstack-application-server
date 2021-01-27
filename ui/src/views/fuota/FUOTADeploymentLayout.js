@@ -91,11 +91,11 @@ class FUOTADeploymentLayout extends Component {
     return(
       <Grid container spacing={4}>
         <TitleBar>
-          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications`} title="Applications" />
+          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications`} title="应用" />
           <TitleBarTitle title="/" />
           <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}`} title={this.state.application.application.name} />
           <TitleBarTitle title="/" />
-          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments`} title="Firmware update jobs" />
+          <TitleBarTitle to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments`} title="固件更新作业" />
           <TitleBarTitle title="/" />
           <TitleBarTitle title={this.state.fuotaDeployment.fuotaDeployment.name} />
         </TitleBar>
@@ -107,8 +107,8 @@ class FUOTADeploymentLayout extends Component {
             value={this.state.tab}
             onChange={this.onChangeTab}
           >
-            <Tab label="Information" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments/${this.props.match.params.fuotaDeploymentID}`} />
-            <Tab label="Devices" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments/${this.props.match.params.fuotaDeploymentID}/devices`} />
+            <Tab label="信息" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments/${this.props.match.params.fuotaDeploymentID}`} />
+            <Tab label="设备" component={Link} to={`/organizations/${this.props.match.params.organizationID}/applications/${this.props.match.params.applicationID}/fuota-deployments/${this.props.match.params.fuotaDeploymentID}/devices`} />
           </Tabs>
         </Grid>
 

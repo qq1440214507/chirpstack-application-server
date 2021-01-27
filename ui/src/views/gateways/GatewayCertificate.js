@@ -50,42 +50,42 @@ class GatewayCertificate extends Component {
           {this.state.tlsCert != null && <form>
             <TextField
               id="expiresAt"
-              label="Certificate expires at"
+              label="证书过期时间"
               margin="normal"
               value={this.state.expiresAt}
-              helperText="The certificate expires at this date. Make sure to generate and configure a new certificate for your gateway before this expiration date."
+              helperText="证书在设置的日期过期。确保在此到期日期之前为网关生成并配置新证书。"
               disabled
               fullWidth
             />
             <TextField
               id="caCert"
-              label="CA certificate"
+              label="CA证书"
               margin="normal"
               value={this.state.caCert}
               rows={10}
               multiline
               fullWidth
-              helperText="The CA certificate is to authenticate the certificate of the server. Store this as a text-file on your gateway, e.g. named 'ca.pem'."
+              helperText="用于验证服务器的CA证书。将此文本存储在网关上，例如 名为“ca.pem”。"
             />
             <TextField
               id="tlsCert"
-              label="TLS certificate"
+              label="TLS证书"
               margin="normal"
               value={this.state.tlsCert}
               rows={10}
               multiline
               fullWidth
-              helperText="Store this as a text-file on your gateway, e.g. named 'cert.pem'"
+              helperText="将此文本存储在网关上，例如 名为'cert.pem'。"
             />
             <TextField
               id="tlsKey"
-              label="TLS key"
+              label="TLS秘钥"
               margin="normal"
               value={this.state.tlsKey}
               rows={10}
               multiline
               fullWidth
-              helperText="Store this as a text-file on your gateway, e.g. named 'key.pem'"
+              helperText="将此文本存储在网关上,例如 名为 'key.pem'。"
             />
           </form>}
         </CardContent>

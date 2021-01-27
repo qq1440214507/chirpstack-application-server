@@ -46,35 +46,35 @@ class NetworkServerForm extends FormComponent {
               textColor="primary"
               onChange={this.onChangeTab}
             >
-              <Tab label="General" />
-              <Tab label="Gateway discovery" />
-              <Tab label="TLS certificates" />
+              <Tab label="基础" />
+              <Tab label="网关发现" />
+              <Tab label="TLS证书" />
             </Tabs>
           {this.state.tab === 0 && <div>
             <TextField
               id="name"
-              label="Network-server name"
+              label="网络服务器名称"
               fullWidth={true}
               margin="normal"
               value={this.state.object.name || ""}
               onChange={this.onChange}
-              helperText="A name to identify the network-server."
+              helperText="网络服务器的名称。"
               required={true}
             />
             <TextField
               id="server"
-              label="Network-server server"
+              label="网络服务器地址"
               fullWidth={true}
               margin="normal"
               value={this.state.object.server || ""}
               onChange={this.onChange}
-              helperText="The 'hostname:port' of the network-server, e.g. 'localhost:8000'."
+              helperText="格式为 'hostname:port',比如，'localhost:8000'."
               required={true}
             />
           </div>}
           {this.state.tab === 1 && <div>
             <FormControl
-              label="Gateway discovery"
+              label="网关发现"
             >
               <FormGroup>
                 <FormControlLabel
@@ -87,80 +87,80 @@ class NetworkServerForm extends FormComponent {
                       color="primary"
                     />
                   }
-                  label="Enable gateway discovery"
+                  label="开启网关发现"
                 />
               </FormGroup>
-              <FormHelperText>Enable the gateway discovery feature for this network-server.</FormHelperText>
+              <FormHelperText>为该网络服务器启用网关发现功能。</FormHelperText>
             </FormControl>
             {this.state.object.gatewayDiscoveryEnabled && <TextField
               id="gatewayDiscoveryInterval"
-              label="Interval (per day)"
+              label="时间间隔 (每天)"
               type="number"
               fullWidth={true}
               margin="normal"
               value={this.state.object.gatewayDiscoveryInterval}
               onChange={this.onChange}
-              helperText="The number of gateway discovery 'pings' per day that ChirpStack Application Server will broadcast through each gateway."
+              helperText="应用程序服务器每天向每个网关发送的网关发现“ping”数。"
               required={true}
             />}
             {this.state.object.gatewayDiscoveryEnabled && <TextField
               id="gatewayDiscoveryTXFrequency"
-              label="TX frequency (Hz)"
+              label="TX频率(Hz)"
               type="number"
               fullWidth={true}
               margin="normal"
               value={this.state.object.gatewayDiscoveryTXFrequency}
               onChange={this.onChange}
-              helperText="The frequency (Hz) used for transmitting the gateway discovery 'pings'. Please consult the LoRaWAN Regional Parameters specification for the channels valid for each region."
+              helperText="用于传输网关发现“ping”的频率（Hz）。请查阅LoRaWAN区域参数规范，以获取每个区域有效的通道。"
               required={true}
             />}
             {this.state.object.gatewayDiscoveryEnabled && <TextField
               id="gatewayDiscoveryDR"
-              label="TX data-rate"
+              label="TX消息速率"
               type="number"
               fullWidth={true}
               margin="normal"
               value={this.state.object.gatewayDiscoveryDR}
               onChange={this.onChange}
-              helperText="The data-rate used for transmitting the gateway discovery 'pings'. Please consult the LoRaWAN Regional Parameters specification for the data-rates valid for each region."
+              helperText="用于传输网关发现“ping”的数据速率。请参阅LoRaWAN区域参数规范，以获取每个区域的有效数据速率。"
               required={true}
             />}
           </div>}
           {this.state.tab === 2 && <div>
             <FormControl
-              label="Certificates for ChirpStack Application Server to ChirpStack Network Server connection"
+              label="应用程序服务器到网络服务器连接的证书"
             >
               <FormGroup>
                 <TextField
                   id="caCert"
-                  label="CA certificate"
+                  label="CA证书"
                   fullWidth={true}
                   margin="normal"
                   value={this.state.object.caCert || ""}
                   onChange={this.onChange}
-                  helperText="Paste the content of the CA certificate (PEM) file in the above textbox. Leave blank to disable TLS."
+                  helperText="将CA证书（PEM）文件的内容粘贴到上面的文本框中。留空以禁用TLS。"
                   multiline
                   rows="4"
                 />
                 <TextField
                   id="tlsCert"
-                  label="TLS certificate"
+                  label="TLS证书"
                   fullWidth={true}
                   margin="normal"
                   value={this.state.object.tlsCert || ""}
                   onChange={this.onChange}
-                  helperText="Paste the content of the TLS certificate (PEM) file in the above textbox. Leave blank to disable TLS."
+                  helperText="将TLS证书（PEM）文件的内容粘贴到上面的文本框中。留空以禁用TLS。"
                   multiline
                   rows="4"
                 />
                 <TextField
                   id="tlsKey"
-                  label="TLS key"
+                  label="TLS秘钥"
                   fullWidth={true}
                   margin="normal"
                   value={this.state.object.tlsKey || ""}
                   onChange={this.onChange}
-                  helperText="Paste the content of the TLS key (PEM) file in the above textbox. Leave blank to disable TLS. Note: for security reasons, the TLS key can't be retrieved after being submitted (the field is left blank). When re-submitting the form with an empty TLS key field (but populated TLS certificate field), the key won't be overwritten."
+                  helperText="在上面的文本框中粘贴TLS密钥（PEM）文件的内容。 留空以禁用TLS。 注意：出于安全原因，TLS密钥在提交后无法检索（该字段保留为空白）。 当重新提交带有空TLS密钥字段（但已填充TLS证书字段）的表单时，密钥不会被覆盖。"
                   multiline
                   rows="4"
                 />
@@ -168,39 +168,39 @@ class NetworkServerForm extends FormComponent {
             </FormControl>
 
             <FormControl
-              label="Certificates for ChirpStack Network Server to ChirpStack Application Server connection"
+              label="网络服务器到应用程序服务器连接的证书"
             >
               <FormGroup>
                 <TextField
                   id="routingProfileCACert"
-                  label="CA certificate"
+                  label="CA证书"
                   fullWidth={true}
                   margin="normal"
                   value={this.state.object.routingProfileCACert || ""}
                   onChange={this.onChange}
-                  helperText="Paste the content of the CA certificate (PEM) file in the above textbox. Leave blank to disable TLS."
+                  helperText="将CA证书（PEM）文件的内容粘贴到上面的文本框中。留空以禁用TLS。"
                   multiline
                   rows="4"
                 />
                 <TextField
                   id="routingProfileTLSCert"
-                  label="TLS certificate"
+                  label="TLS证书"
                   fullWidth={true}
                   margin="normal"
                   value={this.state.object.routingProfileTLSCert || ""}
                   onChange={this.onChange}
-                  helperText="Paste the content of the TLS certificate (PEM) file in the above textbox. Leave blank to disable TLS."
+                  helperText="将TLS证书（PEM）文件的内容粘贴到上面的文本框中。留空以禁用TLS。"
                   multiline
                   rows="4"
                 />
                 <TextField
                   id="routingProfileTLSKey"
-                  label="TLS key"
+                  label="TLS秘钥"
                   fullWidth={true}
                   margin="normal"
                   value={this.state.object.routingProfileTLSKey || ""}
                   onChange={this.onChange}
-                  helperText="Paste the content of the TLS key (PEM) file in the above textbox. Leave blank to disable TLS. Note: for security reasons, the TLS key can't be retrieved after being submitted (the field is left blank). When re-submitting the form with an empty TLS key field (but populated TLS certificate field), the key won't be overwritten."
+                  helperText="在上面的文本框中粘贴TLS密钥（PEM）文件的内容。 留空以禁用TLS。 注意：出于安全原因，TLS密钥在提交后无法检索（该字段保留为空白）。 当重新提交带有空TLS密钥字段（但已填充TLS证书字段）的表单时，密钥不会被覆盖。"
                   multiline
                   rows="4"
                 />

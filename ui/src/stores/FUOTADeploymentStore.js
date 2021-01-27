@@ -23,7 +23,7 @@ class FUOTADeploymentStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.notify("created");
+          this.notify("创建");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -83,8 +83,8 @@ class FUOTADeploymentStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "fuota deployment has been " + action,
+        type: "成功",
+        message: "fuota部署已" + action,
       },
     });
   }

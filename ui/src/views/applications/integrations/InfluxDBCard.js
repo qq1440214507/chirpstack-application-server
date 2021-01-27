@@ -22,7 +22,7 @@ const styles = {
 
 class InfluxDBCard extends Component {
   delete = () => {
-    if (window.confirm("Are you sure you want to remove the InfluxDB integration?")) {
+    if (window.confirm("您确定要删除InfluxDB集成吗?")) {
       ApplicationStore.deleteInfluxDBIntegration(this.props.applicationID, () => {});
     }
   }
@@ -40,21 +40,21 @@ class InfluxDBCard extends Component {
             InfluxDB
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            The InfluxDB integration writes events into an InfluxDB time-series database.
+              InfluxDB集成将事件写入InfluxDB时间序列数据库。
           </Typography>
         </CardContent>
         <CardActions>
           {!this.props.add && <Link to={`/organizations/${this.props.organizationID}/applications/${this.props.applicationID}/integrations/influxdb/edit`}>
             <Button size="small" color="primary">
-              Edit
+              编辑
             </Button>
           </Link>}
           {!this.props.add && <Button size="small" color="primary" onClick={this.delete}>
-            Remove
+            移除
           </Button>}
             {!!this.props.add && <Link to={`/organizations/${this.props.organizationID}/applications/${this.props.applicationID}/integrations/influxdb/create`}>
               <Button size="small" color="primary">
-                Add
+                添加
               </Button>
             </Link>}
         </CardActions>

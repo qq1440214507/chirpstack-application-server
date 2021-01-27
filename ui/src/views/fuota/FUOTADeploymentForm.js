@@ -29,7 +29,7 @@ class FUOTADeploymentForm extends FormComponent {
 
   getGroupTypeOptions(search, callbackFunc) {
     const options = [
-      {value: "CLASS_C", label: "Class-C"},
+      {value: "CLASS_C", label: "C类"},
     ];
 
     callbackFunc(options);
@@ -40,7 +40,7 @@ class FUOTADeploymentForm extends FormComponent {
 
     for (let i = 0; i < (1 << 4); i++) {
       options.push({
-        label: `${1 << i} seconds`,
+        label: `${1 << i}秒`,
         value: i,
       });
     }
@@ -83,9 +83,9 @@ class FUOTADeploymentForm extends FormComponent {
 
     let fileLabel = "";
     if (this.state.file !== null) {
-      fileLabel = `${this.state.file.name} (${this.state.file.size} bytes)`
+      fileLabel = `${this.state.file.name} (${this.state.file.size}字节)`
     } else {
-      fileLabel = "Select file..."
+      fileLabel = "选择文件..."
     }
 
     return(
@@ -95,8 +95,8 @@ class FUOTADeploymentForm extends FormComponent {
       >
         <TextField
           id="name"
-          label="Firmware update job-name"
-          helperText="A descriptive name for this firmware update job."
+          label="固件更新任务名称"
+          helperText="描述固件更新任务的名称。"
           margin="normal"
           value={this.state.object.name || ""}
           onChange={this.onChange}
@@ -105,20 +105,20 @@ class FUOTADeploymentForm extends FormComponent {
         />
 
         <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Select firmware file</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>选择固件文件</FormLabel>
           <Button component="label">
             {fileLabel}
             <input type="file" style={{display: "none"}} onChange={this.onFileChange} />
           </Button>
           <FormHelperText>
-            This file will fragmented and sent to the device(s). Please note that the format of this file is vendor dependent.
+            该文件将分片发送到设备。请注意，此文件的格式取决于供应商。
           </FormHelperText>
         </FormControl>
 
         <TextField
           id="redundancy"
-          label="Redundant frames"
-          helperText="The given number represents the extra redundant frames that will be sent so that a device can recover from packet-loss."
+          label="冗余帧"
+          helperText="这个数字表示将发送的额外冗余帧，以便设备可以从丢包中恢复。"
           margin="normal"
           type="number"
           value={this.state.object.redundancy || 0}
@@ -129,16 +129,16 @@ class FUOTADeploymentForm extends FormComponent {
 
         <DurationField
           id="unicastTimeout"
-          label="Unicast timeout (seconds)"
-          helperText="Set this to the minimum interval in which the device(s) are sending uplink messages."
+          label="单播超时时间(秒)"
+          helperText="将此设置为设备发送上行链路消息的最小间隔。"
           value={this.state.object.unicastTimeout}
           onChange={this.onChange}
         />
 
         <TextField
           id="dr"
-          label="Data-rate"
-          helperText="The data-rate to use when transmitting the multicast frames. Please refer to the LoRaWAN Regional Parameters specification for valid values."
+          label="消息速率"
+          helperText="传输组播帧时使用的数据速率。具体有效值，请参阅LoRaWAN区域参数规范。"
           margin="normal"
           type="number"
           value={this.state.object.dr || 0}
@@ -149,8 +149,8 @@ class FUOTADeploymentForm extends FormComponent {
 
         <TextField
           id="frequency"
-          label="Frequency (Hz)"
-          helperText="The frequency to use when transmitting the multicast frames. Please refer to the LoRaWAN Regional Parameters specification for valid values."
+          label="频率(Hz)"
+          helperText="传输组播帧时使用的频率。具体有效值，请参阅LoRaWAN区域参数规范。"
           margin="normal"
           type="number"
           value={this.state.object.frequency || 0}
@@ -160,24 +160,24 @@ class FUOTADeploymentForm extends FormComponent {
         />
 
         <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Multicast-group type</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>组播组类型</FormLabel>
           <AutocompleteSelect
             id="groupType"
-            label="Select multicast-group type"
+            label="选择组播组类型"
             value={this.state.object.groupType || ""}
             onChange={this.onChange}
             getOptions={this.getGroupTypeOptions}
           />
           <FormHelperText>
-            The multicast-group type defines the way how multicast frames are scheduled by the network-server.
+            组播组类型定义了网络服务器如何调度组播帧的方式。
           </FormHelperText>
         </FormControl>
 
         <FormControl fullWidth margin="normal">
-          <FormLabel className={this.props.classes.formLabel} required>Multicast timeout</FormLabel>
+          <FormLabel className={this.props.classes.formLabel} required>组播超时</FormLabel>
           <AutocompleteSelect
             id="multicastTimeout"
-            label="Select multicast timeout"
+            label="选择组播超时"
             value={this.state.object.multicastTimeout || ""}
             onChange={this.onChange}
             getOptions={this.getMulticastTimeoutOptions}

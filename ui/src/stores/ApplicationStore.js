@@ -22,7 +22,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("created");
+        this.notify("创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -52,7 +52,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("updated");
+        this.notify("更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -66,7 +66,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.notify("deleted");
+        this.notify("删除");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -112,7 +112,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("http", "created");
+        this.integrationNotification("http", "创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -142,7 +142,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("http", "updated");
+        this.integrationNotification("http", "更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -156,7 +156,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("http", "deleted");
+        this.integrationNotification("http", "删除");
         this.emit("integration.delete");
         callbackFunc(resp.obj);
       })
@@ -175,7 +175,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("InfluxDB", "created");
+        this.integrationNotification("InfluxDB", "创建");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -205,7 +205,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("InfluxDB", "updated");
+        this.integrationNotification("InfluxDB", "更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -219,7 +219,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("InfluxDB", "deleted");
+        this.integrationNotification("InfluxDB", "删除");
         this.emit("integration.delete");
         callbackFunc(resp.obj);
       })
@@ -237,7 +237,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp =>  {
-          this.integrationNotification("ThingsBoard.io", "created");
+          this.integrationNotification("ThingsBoard.io", "创建");
           callbackFunc(resp.obj);
         })
       .catch(errorHandler);
@@ -267,7 +267,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("ThingsBoard.io", "updated");
+        this.integrationNotification("ThingsBoard.io", "更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -281,7 +281,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("ThingsBoard.io", "deleted");
+        this.integrationNotification("ThingsBoard.io", "删除");
         this.emit("integration.delete");
         callbackFunc(resp.obj);
       })
@@ -299,7 +299,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp =>  {
-          this.integrationNotification("myDevices", "created");
+          this.integrationNotification("myDevices", "创建");
           callbackFunc(resp.obj);
         })
       .catch(errorHandler);
@@ -329,7 +329,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("myDevices", "updated");
+        this.integrationNotification("myDevices", "更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -343,7 +343,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("myDevices", "deleted");
+        this.integrationNotification("myDevices", "删除");
         this.emit("integration.delete");
         callbackFunc(resp.obj);
       })
@@ -361,7 +361,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("LoRa Cloud", "created");
+          this.integrationNotification("LoRa Cloud", "创建");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -391,7 +391,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("LoRa Cloud", "updated");
+        this.integrationNotification("LoRa Cloud", "更新");
         callbackFunc(resp.obj);
       })
       .catch(errorHandler);
@@ -405,7 +405,7 @@ class ApplicationStore extends EventEmitter {
       })
       .then(checkStatus)
       .then(resp => {
-        this.integrationNotification("LoRa Cloud", "deleted");
+        this.integrationNotification("LoRa Cloud", "删除");
         this.emit("integration.delete");
         callbackFunc(resp.obj);
       })
@@ -417,8 +417,8 @@ class ApplicationStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: "application has been " + action,
+        type: "成功",
+        message: "应用已" + action,
       },
     });
   }
@@ -433,7 +433,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("GCP Pub/Sub", "created");
+          this.integrationNotification("GCP Pub/Sub", "创建");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -463,7 +463,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("GCP Pub/Sub", "updated");
+          this.integrationNotification("GCP Pub/Sub", "更新");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -477,7 +477,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("GCP Pub/Sbu", "deleted");
+          this.integrationNotification("GCP Pub/Sbu", "删除");
           this.emit("integration.delete");
           callbackFunc(resp.obj);
         })
@@ -495,7 +495,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("AWS SNS", "created");
+          this.integrationNotification("AWS SNS", "创建");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -525,7 +525,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("AWS SNS", "updated");
+          this.integrationNotification("AWS SNS", "更新");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -539,7 +539,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("AWS SNS", "deleted");
+          this.integrationNotification("AWS SNS", "删除");
           this.emit("integration.delete");
           callbackFunc(resp.obj);
         })
@@ -557,7 +557,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("Azure Service-Bus", "created");
+          this.integrationNotification("Azure Service-Bus", "创建");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -587,7 +587,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("Azure Service-Bus", "updated");
+          this.integrationNotification("Azure Service-Bus", "更新");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -601,7 +601,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("Azure Service-Bus", "deleted");
+          this.integrationNotification("Azure Service-Bus", "删除");
           this.emit("integration.delete");
           callbackFunc(resp.obj);
         })
@@ -619,7 +619,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("Pilot Things", "created");
+          this.integrationNotification("Pilot Things", "创建");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -649,7 +649,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("Pilot Things", "updated");
+          this.integrationNotification("Pilot Things", "更新");
           callbackFunc(resp.obj);
         })
         .catch(errorHandler);
@@ -663,7 +663,7 @@ class ApplicationStore extends EventEmitter {
       })
         .then(checkStatus)
         .then(resp => {
-          this.integrationNotification("Pilot Things", "deleted");
+          this.integrationNotification("Pilot Things", "删除");
           this.emit("integration.delete");
           callbackFunc(resp.obj);
         })
@@ -675,8 +675,8 @@ class ApplicationStore extends EventEmitter {
     dispatcher.dispatch({
       type: "CREATE_NOTIFICATION",
       notification: {
-        type: "success",
-        message: kind + " integration has been " + action,
+        type: "成功",
+        message: kind + "集成已" + action,
       },
     });
   }

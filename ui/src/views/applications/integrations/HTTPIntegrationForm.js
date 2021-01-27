@@ -48,7 +48,7 @@ class HTTPIntegrationHeaderForm extends FormComponent {
         <Grid item xs={4}>
           <TextField
             id="key"
-            label="Header name"
+            label="请求头名称"
             margin="normal"
             value={this.state.object.key || ""}
             onChange={this.onChange}
@@ -58,7 +58,7 @@ class HTTPIntegrationHeaderForm extends FormComponent {
         <Grid item xs={7}>
           <TextField
             id="value"
-            label="Header value"
+            label="请求头值"
             margin="normal"
             value={this.state.object.value || ""}
             onChange={this.onChange}
@@ -66,7 +66,7 @@ class HTTPIntegrationHeaderForm extends FormComponent {
           />
         </Grid>
         <Grid item xs={1} className={this.props.classes.delete}>
-          <IconButton aria-label="delete" onClick={this.onDelete}>
+          <IconButton aria-label="删除" onClick={this.onDelete}>
             <Delete />
           </IconButton>
         </Grid>
@@ -116,7 +116,7 @@ class HTTPIntegrationForm extends FormComponent {
     const marshalerOptions = [
       {value: "JSON", label: "JSON"},
       {value: "PROTOBUF", label: "Protocol Buffers"},
-      {value: "JSON_V3", label: "JSON (legacy, will be deprecated)"},
+      {value: "JSON_V3", label: "JSON (将被弃用)"},
     ];
 
     callbackFunc(marshalerOptions);
@@ -135,28 +135,28 @@ class HTTPIntegrationForm extends FormComponent {
     return(
       <Form submitLabel={this.props.submitLabel} onSubmit={this.onSubmit}>
         <FormControl fullWidth margin="normal">
-          <FormLabel required>Payload marshaler</FormLabel>
+          <FormLabel required>有效负载封装</FormLabel>
           <AutocompleteSelect
             id="marshaler"
-            label="Select payload marshaler"
+            label="选择有效负载封装"
             value={this.state.object.marshaler || ""}
             onChange={this.onChange}
             getOptions={this.getMarshalerOptions}
           />
-          <FormHelperText>This defines how the payload will be encoded.</FormHelperText>
+          <FormHelperText>这定义了如何编码的有效负载。</FormHelperText>
         </FormControl>
         <FormControl fullWidth margin="normal">
-          <FormLabel>Headers</FormLabel>
+          <FormLabel>请求头</FormLabel>
           {headers}
         </FormControl>
-        <Button variant="outlined" onClick={this.addHeader}>Add header</Button>
+        <Button variant="outlined" onClick={this.addHeader}>添加请求头</Button>
         <FormControl fullWidth margin="normal">
-          <FormLabel>Endpoints</FormLabel>
+          <FormLabel>端点</FormLabel>
           <TextField
             id="eventEndpointURL"
-            label="Endpoint URL(s) for events"
+            label="端点的URL(s)事件"
             placeholder="http://example.com/events"
-            helperText="ChirpStack will make a POST request to this URL(s) with 'event' as query parameter. Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="程序将使用“事件”作为参数对此URL发出POST请求。可以将多个URL定义为以逗号分隔的列表。空格将被自动删除。"
             value={this.state.object.eventEndpointURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -164,9 +164,9 @@ class HTTPIntegrationForm extends FormComponent {
           />
           {!!this.state.object.uplinkDataURL && <TextField
             id="uplinkDataURL"
-            label="Uplink data URL(s)"
+            label="上行链路URL(s)"
             placeholder="http://example.com/uplink"
-            helperText="Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.uplinkDataURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -174,9 +174,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.joinNotificationURL && <TextField
             id="joinNotificationURL"
-            label="Join notification URL(s)"
+            label="入网通知URL(s)"
             placeholder="http://example.com/join"
-            helperText="Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.joinNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -184,9 +184,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.statusNotificationURL && <TextField
             id="statusNotificationURL"
-            label="Device-status notification URL(s)"
+            label="设备状态通知URL(s)"
             placeholder="http://example.com/status"
-            helperText="Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.statusNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -194,9 +194,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.locationNotificationURL && <TextField
             id="locationNotificationURL"
-            label="Location notification URL(s)"
+            label="地理位置通知URL(s)"
             placeholder="http://example.com/location"
-            helperText="Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.locationNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -204,9 +204,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.ackNotificationURL && <TextField
             id="ackNotificationURL"
-            label="ACK notification URL(s)"
+            label="ACK通知URL(s)"
             placeholder="http://example.com/ack"
-            helperText="Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.ackNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -214,9 +214,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.txAckNotificationURL && <TextField
             id="txAckNotificationURL"
-            label="TX ACK notification URL(s)"
+            label="TX ACK通知URL(s)"
             placeholder="http://example.com/txack"
-            helperText="This notification is sent when the downlink was acknowledged by the LoRa gateway for transmission. Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="当LoRa网关确认下行链路进行传输时，将发送此通知。多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.txAckNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -224,9 +224,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.integrationNotificationURL && <TextField
             id="integrationNotificationURL"
-            label="Integration notification URL(s)"
+            label="集成通知URL(s)"
             placeholder="http://example.com/integration"
-            helperText="This notification can by sent by configured integrations to send custom payloads. Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="该通知可以由已配置的集成发送，以发送自定义有效负载。多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.integrationNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
@@ -234,9 +234,9 @@ class HTTPIntegrationForm extends FormComponent {
           />}
           {!!this.state.object.errorNotificationURL && <TextField
             id="errorNotificationURL"
-            label="Error notification URL(s)"
+            label="错误通知URL(s)"
             placeholder="http://example.com/error"
-            helperText="Multiple URLs can be defined as a comma separated list. Whitespace will be automatically removed."
+            helperText="多个URL以逗号隔开。空格将被自动删除。"
             value={this.state.object.errorNotificationURL || ""}
             onChange={this.onChange}
             margin="normal"
