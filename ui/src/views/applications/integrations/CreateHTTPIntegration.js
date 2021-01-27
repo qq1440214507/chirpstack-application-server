@@ -23,9 +23,9 @@ class CreateHTTPIntegration extends Component {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title="Add HTTP integration" />
+            <CardHeader title="添加HTTP集成" />
             <CardContent>
-              <HTTPIntegrationForm submitLabel="Add integration" onSubmit={this.onSubmit} />
+              <HTTPIntegrationForm submitLabel="添加集成" onSubmit={this.onSubmit} />
             </CardContent>
           </Card>
         </Grid>

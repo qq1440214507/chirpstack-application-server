@@ -23,9 +23,9 @@ class CreateInfluxDBIntegration extends Component {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Card>
-            <CardHeader title="Add InfluxDB integration" />
+            <CardHeader title="添加InfluxDB集成" />
             <CardContent>
-              <InfluxDBIntegrationForm submitLabel="Add integration" onSubmit={this.onSubmit} />
+              <InfluxDBIntegrationForm submitLabel="添加集成" onSubmit={this.onSubmit} />
             </CardContent>
           </Card>
         </Grid>

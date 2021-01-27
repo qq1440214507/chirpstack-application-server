@@ -155,7 +155,7 @@ class TopNav extends Component {
           </IconButton>
 
           <div className={this.props.classes.flex}>
-            <img src="/logo/logo.png" className={this.props.classes.logo} alt="智安汇" />
+            <img src="/logo/logo.png" className={this.props.classes.logo} alt="智安汇IOT" />
           </div>
 
           <form onSubmit={this.onSearchSubmit}>
