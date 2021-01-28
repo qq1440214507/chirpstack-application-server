@@ -132,7 +132,7 @@ class Login extends Component {
         <Grid item xs={6} lg={4}>
           <Card>
             <CardHeader
-              title="智安汇IOT登录"
+              title="大汇云IOT登录"
             />
             <CardContent>
               {!this.state.oidcEnabled && <LoginForm
