@@ -42,11 +42,9 @@ class GatewayCertificate extends Component {
       <Card>
         <CardContent>
           <Typography gutterBottom>
-            When required by the network, the gateway needs a client certificate in order to connect to the network.
-            This certificate must be configured on the gateway. After generating the certificate, the certificate
-            can only be retrieved once.
+            网关需要一个客户端证书才能连接到网络。证书必须在网关上配置。证书生成后只能被检索一次。
           </Typography>
-          {this.state.tlsCert == null && <Button onClick={this.requestCertificate} disabled={this.state.buttonDisabled}>Generate certificate</Button>}
+          {this.state.tlsCert == null && <Button onClick={this.requestCertificate} disabled={this.state.buttonDisabled}>创建证书</Button>}
           {this.state.tlsCert != null && <form>
             <TextField
               id="expiresAt"

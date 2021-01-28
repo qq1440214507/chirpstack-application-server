@@ -175,7 +175,7 @@ class GatewayFrames extends Component {
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.toggleHelpDialog} color="primary">Close</Button>
+              <Button onClick={this.toggleHelpDialog} color="primary">关闭</Button>
             </DialogActions>
           </Dialog>
 

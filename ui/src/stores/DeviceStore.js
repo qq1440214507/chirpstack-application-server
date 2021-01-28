@@ -6,6 +6,7 @@ import Swagger from "swagger-client";
 import sessionStore from "./SessionStore";
 import {checkStatus, errorHandler, errorHandlerIgnoreNotFoundWithCallback } from "./helpers";
 import dispatcher from "../dispatcher";
+import config from "../config";
 
 
 class DeviceStore extends EventEmitter {
@@ -201,7 +202,7 @@ class DeviceStore extends EventEmitter {
       }
 
       const wsProtocol = loc.protocol === "https:" ? "wss:" : "ws:";
-      return `${wsProtocol}//${loc.host}/api/devices/${devEUI}/events`;
+      return `${wsProtocol}//${config.hostUrl}:8080/api/devices/${devEUI}/events`;
     })();
 
     const conn = new RobustWebSocket(wsURL, ["Bearer", sessionStore.getToken()], {});

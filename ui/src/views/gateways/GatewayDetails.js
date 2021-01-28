@@ -10,7 +10,7 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-
+import 'moment/locale/zh-cn'
 import moment from "moment";
 import { Map, Marker } from 'react-leaflet';
 import { Line } from "react-chartjs-2";
@@ -39,7 +39,7 @@ class DetailsCard extends Component {
               </TableRow>
               <TableRow>
                 <TableCell>高度</TableCell>
-                <TableCell>{this.props.gateway.location.altitude} meters</TableCell>
+                <TableCell>{this.props.gateway.location.altitude} 米</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>GPS坐标</TableCell>
@@ -147,6 +147,7 @@ class GatewayDetails extends Component {
 
     let lastSeenAt = "从未";
     if (this.props.lastSeenAt !== null) {
+      moment.locale()
       lastSeenAt = moment(this.props.lastSeenAt).format("lll");
     }
 

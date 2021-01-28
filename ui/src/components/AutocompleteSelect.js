@@ -68,7 +68,7 @@ class AutocompleteSelect extends Component {
   render() {
     let options = this.state.options;
     if (this.state.totalCount !== undefined) {
-      options.unshift({label: `Showing ${options.length} of ${this.state.totalCount}`, value: "__DISABLED__"});
+      options.unshift({label: `显示:${options.length},共有:${this.state.totalCount}`, value: "__DISABLED__"});
     }
 
     return(

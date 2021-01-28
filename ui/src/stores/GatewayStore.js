@@ -6,6 +6,7 @@ import Swagger from "swagger-client";
 import sessionStore from "./SessionStore";
 import {checkStatus, errorHandler, errorHandlerIgnoreNotFound } from "./helpers";
 import dispatcher from "../dispatcher";
+import config from "../config";
 
 
 class GatewayStore extends EventEmitter {
@@ -145,7 +146,7 @@ class GatewayStore extends EventEmitter {
       }
 
       const wsProtocol = loc.protocol === "https:" ? "wss:" : "ws:";
-      return `${wsProtocol}//${loc.host}/api/gateways/${gatewayID}/frames`;
+      return `${wsProtocol}//${config.hostUrl}:8080/api/gateways/${gatewayID}/frames`;
     })();
 
     const conn = new RobustWebSocket(wsURL, ["Bearer", sessionStore.getToken()], {});

@@ -304,7 +304,7 @@ class GatewayForm extends FormComponent {
       <Form
         submitLabel={this.props.submitLabel}
         onSubmit={this.onSubmit}
-        extraButtons={this.state.tab === 0 && <Button onClick={this.addGatewayBoard}>Add board configuration</Button>}
+        extraButtons={this.state.tab === 0 && <Button onClick={this.addGatewayBoard}>添加配置</Button>}
       >
         <Tabs value={this.state.tab} onChange={this.onTabChange} indicatorColor="primary">
           <Tab label="基础" />

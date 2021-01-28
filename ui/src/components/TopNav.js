@@ -173,7 +173,7 @@ class TopNav extends Component {
             />
           </form>
 
-          <a href="https://www.chirpstack.io/application-server/" target="chirpstack-doc">
+          <a href="https://www.dhwork.cn/" target="blank">
             <IconButton className={this.props.classes.iconButton}>
               <HelpCicle />
             </IconButton>
