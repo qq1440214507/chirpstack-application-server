@@ -251,7 +251,7 @@ class DeviceStore extends EventEmitter {
       }
 
       const wsProtocol = loc.protocol === "https:" ? "wss:" : "ws:";
-      return `${wsProtocol}//${loc.host}/api/devices/${devEUI}/frames`;
+      return `${wsProtocol}//${config.hostUrl}:8080/api/devices/${devEUI}/frames`;
     })();
 
     const conn = new RobustWebSocket(wsURL, ["Bearer", sessionStore.getToken()], {});
